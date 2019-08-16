@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 import {StorageService} from '../../services/storage.service';
+import {RoutingService} from '../../services/routing.service';
+import {Route} from '../../model/routes';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +10,11 @@ import {StorageService} from '../../services/storage.service';
 })
 export class NavbarComponent implements OnInit {
 
+  public route = Route;
+
   isNavbarCollapsed = true;
   isLoggedIn: boolean;
-  constructor(private router: Router,
+  constructor(private router: RoutingService,
               private storage: StorageService) { }
 
   ngOnInit() {
@@ -21,13 +24,13 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  linkClick(destination: string) {
-    this.router.navigateByUrl(destination);
+  linkClick(destination: Route) {
+    this.router.goTo(destination);
     this.isNavbarCollapsed = true;
   }
 
   logout() {
     this.storage.clear();
-    this.router.navigate(['/main-page']);
+    this.router.goTo(Route.Home);
   }
 }

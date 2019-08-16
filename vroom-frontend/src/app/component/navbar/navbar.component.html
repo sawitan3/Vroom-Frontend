@@ -9,13 +9,13 @@
   <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <button class="btn btn-link nav-link" (click)="linkClick('/list')">Our Cars</button>
+        <button class="btn btn-link nav-link" (click)="linkClick(route.List)">Our Cars</button>
       </li>
       <li class="nav-item" *ngIf="!isLoggedIn">
-        <button class="btn btn-link nav-link" (click)="linkClick('/login')">Login</button>
+        <button class="btn btn-link nav-link" (click)="linkClick(route.Login)">Login</button>
       </li>
       <li class="nav-item" *ngIf="!isLoggedIn">
-        <button class="btn btn-link nav-link" (click)="linkClick('/register')">Register</button>
+        <button class="btn btn-link nav-link" (click)="linkClick(route.Register)">Register</button>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn">
         <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
