@@ -21,4 +21,9 @@ export class StorageService {
   public getItem(key: string) {
     return JSON.parse(sessionStorage.getItem(key));
   }
+
+  public clear() {
+    sessionStorage.clear();
+    this.storageObservable.next(true);
+  }
 }
