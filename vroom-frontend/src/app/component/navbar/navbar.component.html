@@ -1,0 +1,25 @@
+<nav class="navbar sticky-top navbar-expand-md navbar-dark primary-color fixed-top">
+  <a class="navbar-brand" href="#"><img src="assets/logo.png" style="max-width: 5vw" /></a>
+  <div class="form-inline my-2 my-sm-0">
+    <input type="text" class="form-control form-control-sm" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+  </div>
+  <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <button class="btn btn-link nav-link" (click)="linkClick(route.List)">Our Cars</button>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <button class="btn btn-link nav-link" (click)="linkClick(route.Login)">Login</button>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <button class="btn btn-link nav-link" (click)="linkClick(route.Register)">Register</button>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+</nav>

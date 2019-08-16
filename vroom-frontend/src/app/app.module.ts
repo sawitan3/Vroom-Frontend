@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LoginPageComponent} from './page/login-page/login-page.component';
 import {HttpClientModule} from '@angular/common/http';
+import { SuperAdminListComponent } from './page/super-admin-list/super-admin-list.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SuperAdminListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
