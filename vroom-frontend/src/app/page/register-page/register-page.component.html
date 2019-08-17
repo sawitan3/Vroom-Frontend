@@ -1,0 +1,96 @@
+<div class="container custom-container">
+  <h1>Register</h1>
+  <form [formGroup]="registerForm" (submit)="onSubmit()">
+
+    <!--Name-->
+    <div class="form-group">
+      <label for="name">Full Name(*)</label>
+      <input type="text" class="form-control" id="name" placeholder="Full Name" formControlName="name">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)">
+        <small *ngIf="name.errors.required" class="form-text text-danger">
+          Name is required.
+        </small>
+      </div>
+    </div>
+
+    <!--Email-->
+    <div class="form-group">
+      <label for="email">Email(*)</label>
+      <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <small *ngIf="email.errors.required" class="form-text text-danger">
+          Email is required.
+        </small>
+        <small *ngIf="email.errors.email" class="form-text text-danger">
+          Please enter a valid email.
+        </small>
+      </div>
+    </div>
+
+    <!--Password-->
+    <div class="form-group">
+      <label for="password">Password(*)</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+    </div>
+
+    <!--Re-enter Password-->
+    <div class="form-group">
+      <label for="confirmPassword">Re-enter Password(*)</label>
+      <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter Password" formControlName="confirm_password">
+    </div>
+    <div *ngIf="confirmPassword.touched || confirmPassword.dirty">
+      <small *ngIf="user.password !== confirm" class="form-text text-danger">
+        Password does not match.
+      </small>
+    </div>
+
+    <!--Address-->
+    <div class="form-group">
+      <label for="address">Address(*)</label>
+      <input ngx-google-places-autocomplete type="text" class="form-control" id="address" placeholder="Address" formControlName="address">
+    </div>
+
+    <!--Phone Number-->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number(*)</label>
+      <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" formControlName="phone_number">
+    </div>
+
+    <!--License Number-->
+    <div class="form-group">
+      <label for="licenseNumber">License Number(*)</label>
+      <input type="text" class="form-control" id="licenseNumber" placeholder="License Number" formControlName="license_number">
+    </div>
+
+    <!--Card-->
+    <div class="form-group">
+      <label for="cardNumber">Credit/Debit Card Number(*)</label>
+      <input ccNumber type="tel" autocomplete="cc-number" class="form-control" id="cardNumber" placeholder="Card Number"
+             formControlName="number" >
+    </div>
+
+    <!--Name on Card-->
+    <div class="form-group">
+      <label for="ccName">Name on Card(*)</label>
+      <input type="text" class="form-control" id="ccName" placeholder="Name on Card" formControlName="cc_name">
+    </div>
+
+    <!--Expiry Date-->
+    <div class="form-group">
+      <label for="expDate">Expiry Date(*)</label>
+      <input type="tel" autocomplete="cc-exp" class="form-control" id="expDate" placeholder="MM/YY"
+             formControlName="exp_date" ccExp>
+      <div *ngIf="expDate.invalid  && (expDate.dirty || expDate.touched)">
+        <small *ngIf="expDate.errors.required" class="form-text text-danger">
+          Expiry date is required.
+        </small>
+        <small *ngIf="!expDate.errors.required" class="form-text text-danger">
+          Please enter a valid date.
+        </small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success rounded-pill">Register</button>
+
+  </form>
+</div>
