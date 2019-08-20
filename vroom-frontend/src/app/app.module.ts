@@ -9,12 +9,14 @@ import { RegisterPageComponent } from './page/register-page/register-page.compon
 import {HttpClientModule} from '@angular/common/http';
 import {CreditCardDirectivesModule} from 'angular-cc-library';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+import { AutoCompleteComponent } from './google-places.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    AutoCompleteComponent
   ],
   imports: [
     BrowserModule,

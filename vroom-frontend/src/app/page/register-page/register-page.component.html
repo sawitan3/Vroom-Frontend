@@ -31,6 +31,11 @@
     <div class="form-group">
       <label for="password">Password(*)</label>
       <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+      <div *ngIf="confirmPassword.touched || confirmPassword.dirty">
+        <small *ngIf="password.errors.required" class="form-text text-danger">
+          Password is required.
+        </small>
+      </div>
     </div>
 
     <!--Re-enter Password-->

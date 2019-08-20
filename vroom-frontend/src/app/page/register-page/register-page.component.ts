@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
 import {RegisterService} from '../services/register.service';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
@@ -12,6 +12,11 @@ import {RegisterData} from '../model/RegisterData';
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent implements OnInit {
+
+  address: object;
+  establishmentAddress: object;
+
+  formattedEstablishmentAddress: string;
 
   user: RegisterData = {name: '', email: '', password: '', role: 'customer', address: '', phone_number: 0, license_number: '',
     status: false, number: 0, exp_date: '', cc_name: ''};
@@ -35,14 +40,14 @@ export class RegisterPageComponent implements OnInit {
 
   constructor(
     private registerService: RegisterService,
-    private router: Router
+    private router: Router,
+    public zone: NgZone
   ) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this.registerForm.setValue({address: this.registerForm.get('address')});
     const data: RegisterData = {name: this.registerForm.get('name').value, email: this.registerForm.get('email').value,
       password: this.registerForm.get('password').value, role: 'customer', address: this.registerForm.get('address').value,
       phone_number: this.registerForm.get('phone_number').value, license_number: this.registerForm.get('license_number').value,
@@ -65,6 +70,14 @@ export class RegisterPageComponent implements OnInit {
       this.error.message = 'Our server encountered a problem. Please try again.';
       this.error.type = 'info';
     }
+  }
+
+  getEstablishmentAddress(place: object) {
+    this.establishmentAddress = place['formatted_address'];
+    this.formattedEstablishmentAddress = place['formatted_address'];
+    this.zone.run(() => {
+      this.formattedEstablishmentAddress = place['formatted_address'];
+    });
   }
 
   goHome(): void {
