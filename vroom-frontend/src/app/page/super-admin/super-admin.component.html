@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Super Admin Page</h1>
+    <table>
+        <thead>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let admin of admins">
+                <tr>
+                    <td>{{admin.name}}</td>
+                    <td>{{admin.email}}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

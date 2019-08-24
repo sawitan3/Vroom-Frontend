@@ -5,16 +5,17 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LoginPageComponent} from './page/login-page/login-page.component';
-import {HttpClientModule} from '@angular/common/http';
-import { SuperAdminListComponent } from './page/super-admin-list/super-admin-list.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { SuperAdminComponent } from './page/super-admin/super-admin.component';
+import {TokenInterceptor} from './interceptors/auth';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    SuperAdminListComponent,
-    NavbarComponent
+    NavbarComponent,
+    SuperAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,11 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
