@@ -8,7 +8,23 @@
         </ngb-tab>
         <ngb-tab title="Customers">
             <ng-template ngbTabContent>
-                x
+                <ngb-tabset type="pills">
+                    <ngb-tab title="All">
+                        <ng-template ngbTabContent>
+                            <app-customer-list [status]="status.All"></app-customer-list>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="Active">
+                        <ng-template ngbTabContent>
+                            <app-customer-list [status]="status.Active"></app-customer-list>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="Inactive">
+                        <ng-template ngbTabContent>
+                            <app-customer-list [status]="status.Inactive"></app-customer-list>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
             </ng-template>
         </ngb-tab>
     </ngb-tabset>

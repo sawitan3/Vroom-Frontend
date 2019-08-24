@@ -1,0 +1,14 @@
+<table>
+  <thead>
+  <th scope="col">Name</th>
+  <th scope="col">Email</th>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let customer of customers">
+    <tr>
+      <td>{{customer.name}}</td>
+      <td>{{customer.email}}</td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>

@@ -10,6 +10,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { SuperAdminComponent } from './page/super-admin/super-admin.component';
 import {TokenInterceptor} from './interceptors/auth';
 import { AdminListComponent } from './page/super-admin/admin-list/admin-list.component';
+import { CustomerListComponent } from './page/super-admin/customer-list/customer-list.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AdminListComponent } from './page/super-admin/admin-list/admin-list.com
     NavbarComponent,
     SuperAdminComponent,
     AdminListComponent,
+    CustomerListComponent,
   ],
   imports: [
     BrowserModule,
