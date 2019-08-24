@@ -1,17 +1,15 @@
 <div class="container">
     <h1>Super Admin Page</h1>
-    <table>
-        <thead>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-        </thead>
-        <tbody>
-            <ng-container *ngFor="let admin of admins">
-                <tr>
-                    <td>{{admin.name}}</td>
-                    <td>{{admin.email}}</td>
-                </tr>
-            </ng-container>
-        </tbody>
-    </table>
+    <ngb-tabset type="pills">
+        <ngb-tab title="Admins">
+            <ng-template ngbTabContent>
+                <app-admin-list [admins]="admins"></app-admin-list>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Customers">
+            <ng-template ngbTabContent>
+                x
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
 </div>

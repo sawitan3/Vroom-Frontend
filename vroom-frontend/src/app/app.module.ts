@@ -9,6 +9,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SuperAdminComponent } from './page/super-admin/super-admin.component';
 import {TokenInterceptor} from './interceptors/auth';
+import { AdminListComponent } from './page/super-admin/admin-list/admin-list.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {TokenInterceptor} from './interceptors/auth';
     LoginPageComponent,
     NavbarComponent,
     SuperAdminComponent,
+    AdminListComponent,
   ],
   imports: [
     BrowserModule,
