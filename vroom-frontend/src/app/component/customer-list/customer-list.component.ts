@@ -22,4 +22,8 @@ export class CustomerListComponent implements OnInit {
     });
   }
 
+  update(customerId: number) {
+    return;
+  }
+
 }
