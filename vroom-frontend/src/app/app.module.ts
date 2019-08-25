@@ -11,6 +11,8 @@ import { SuperAdminComponent } from './page/super-admin/super-admin.component';
 import {TokenInterceptor} from './interceptors/auth';
 import { AdminListComponent } from './page/super-admin/admin-list/admin-list.component';
 import { CustomerListComponent } from './page/super-admin/customer-list/customer-list.component';
+import { CreateNewAdminComponent } from './page/super-admin/create-new-admin/create-new-admin.component';
+import {ModalBodyDirective, ModalWrapperComponent} from './component/modal-wrapper/modal-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,9 @@ import { CustomerListComponent } from './page/super-admin/customer-list/customer
     SuperAdminComponent,
     AdminListComponent,
     CustomerListComponent,
+    CreateNewAdminComponent,
+    ModalWrapperComponent,
+    ModalBodyDirective
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { CustomerListComponent } from './page/super-admin/customer-list/customer
     useClass: TokenInterceptor,
     multi: true
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalWrapperComponent, CreateNewAdminComponent]
 })
 export class AppModule { }
