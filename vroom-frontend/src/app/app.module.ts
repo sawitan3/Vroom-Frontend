@@ -5,16 +5,26 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LoginPageComponent} from './page/login-page/login-page.component';
-import {HttpClientModule} from '@angular/common/http';
-import { SuperAdminListComponent } from './page/super-admin-list/super-admin-list.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { SuperAdminComponent } from './page/super-admin/super-admin.component';
+import {TokenInterceptor} from './interceptors/auth';
+import { AdminListComponent } from './page/super-admin/admin-list/admin-list.component';
+import { CustomerListComponent } from './page/super-admin/customer-list/customer-list.component';
+import { CreateNewAdminComponent } from './page/super-admin/create-new-admin/create-new-admin.component';
+import {ModalBodyDirective, ModalWrapperComponent} from './component/modal-wrapper/modal-wrapper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    SuperAdminListComponent,
-    NavbarComponent
+    NavbarComponent,
+    SuperAdminComponent,
+    AdminListComponent,
+    CustomerListComponent,
+    CreateNewAdminComponent,
+    ModalWrapperComponent,
+    ModalBodyDirective
   ],
   imports: [
     BrowserModule,
@@ -24,7 +34,12 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
+  bootstrap: [AppComponent],
+  entryComponents: [ModalWrapperComponent, CreateNewAdminComponent]
 })
 export class AppModule { }

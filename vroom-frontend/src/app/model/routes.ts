@@ -4,6 +4,7 @@ export enum Route {
     Register = '/register',
     List = '/list',
     Admin = '/admin-page',
+    SuperAdmin = '/super-admin'
 }
 
 

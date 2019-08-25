@@ -5,6 +5,7 @@ import {LoginRequest} from '../../model/LoginRequest';
 import {LoginResponse} from '../../model/LoginResponse';
 import {HttpErrorResponse} from '@angular/common/http';
 import {StorageService} from '../../services/storage.service';
+import {RoutingService} from '../../services/routing.service';
 
 @Component({
   selector: 'app-login-page',
@@ -19,7 +20,9 @@ export class LoginPageComponent implements OnInit {
     password: new FormControl('', [Validators.required])
   });
 
-  constructor(private authService: AuthService, private storageService: StorageService) { }
+  constructor(private authService: AuthService,
+              private storageService: StorageService,
+              private routingService: RoutingService) { }
 
   ngOnInit() {
   }
@@ -51,5 +54,6 @@ export class LoginPageComponent implements OnInit {
     this.storageService.setItem('token', res.token);
     this.storageService.setItem('role', res.role);
     this.storageService.setItem('isLoggedIn', true);
+    this.routingService.redirectAfterLogin(res.role);
   }
 }
