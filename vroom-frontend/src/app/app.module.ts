@@ -10,9 +10,11 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { SuperAdminComponent } from './page/super-admin/super-admin.component';
 import {TokenInterceptor} from './interceptors/auth';
 import { AdminListComponent } from './page/super-admin/admin-list/admin-list.component';
-import { CustomerListComponent } from './page/super-admin/customer-list/customer-list.component';
+import { CustomerListComponent } from './component/customer-list/customer-list.component';
 import { CreateNewAdminComponent } from './page/super-admin/create-new-admin/create-new-admin.component';
 import {ModalBodyDirective, ModalWrapperComponent} from './component/modal-wrapper/modal-wrapper.component';
+import { AdminPageComponent } from './page/admin-page/admin-page.component';
+import { CustomerContainerComponent } from './container/customer-container/customer-container.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {ModalBodyDirective, ModalWrapperComponent} from './component/modal-wrapp
     CustomerListComponent,
     CreateNewAdminComponent,
     ModalWrapperComponent,
-    ModalBodyDirective
+    ModalBodyDirective,
+    AdminPageComponent,
+    CustomerContainerComponent
   ],
   imports: [
     BrowserModule,

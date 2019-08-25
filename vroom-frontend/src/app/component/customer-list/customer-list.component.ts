@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CustomerService, Status} from '../../../services/customer.service';
-import {Customer} from '../../../model/Customer';
+import {CustomerService, Status} from '../../services/customer.service';
+import {Customer} from '../../model/Customer';
 
 @Component({
   selector: 'app-customer-list',
@@ -20,6 +20,10 @@ export class CustomerListComponent implements OnInit {
     this.customerService.getCustomers(this.status).subscribe(res => {
       this.customers = res.customers;
     });
+  }
+
+  update(customerId: number) {
+    return;
   }
 
 }
