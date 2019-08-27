@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LoginPageComponent} from './page/login-page/login-page.component';
 import { RegisterPageComponent } from './page/register-page/register-page.component';
-import {HttpClientModule} from '@angular/common/http';
 import {CreditCardDirectivesModule} from 'angular-cc-library';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
 import { AutoCompleteComponent } from './google-places.component';
@@ -26,7 +25,7 @@ import { CustomerContainerComponent } from './container/customer-container/custo
     AppComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    AutoCompleteComponent
+    AutoCompleteComponent,
     NavbarComponent,
     SuperAdminComponent,
     AdminListComponent,
@@ -45,7 +44,7 @@ import { CustomerContainerComponent } from './container/customer-container/custo
     ReactiveFormsModule,
     HttpClientModule,
     CreditCardDirectivesModule,
-    GooglePlaceModule
+    GooglePlaceModule,
     HttpClientModule
   ],
   providers: [{
