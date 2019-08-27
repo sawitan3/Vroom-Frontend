@@ -9,12 +9,19 @@ import {CustomerListResponse} from '../model/CustomerListResponse';
 })
 export class CustomerService {
 
+  private url = "https://powerful-sea-28932.herokuapp.com/api/";
+
   constructor(private httpClient: HttpClient) { }
 
   public getCustomers(status: Status = Status.All): Observable<CustomerListResponse> {
-    const url = `https://powerful-sea-28932.herokuapp.com/api/${this.getURL(status)}`;
+    const url = `${this.url}${this.getURL(status)}`;
     return this.httpClient.get(url)
         .pipe(map((x: any) => ({customers: x.data})));
+  }
+
+  public toggleCustomer(id: number): Observable<any>{
+    const url = `${this.url}users/activate/${id}`;
+    return this.httpClient.put(url, null);
   }
 
   private getURL(status: Status) {

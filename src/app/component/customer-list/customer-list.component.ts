@@ -23,7 +23,9 @@ export class CustomerListComponent implements OnInit {
   }
 
   update(customerId: number) {
-    return;
+    this.customerService.toggleCustomer(customerId).subscribe(res => {
+      console.log(res);
+    })
   }
 
 }
