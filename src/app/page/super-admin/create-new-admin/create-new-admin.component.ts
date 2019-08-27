@@ -3,6 +3,8 @@ import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/form
 import {UserService} from '../../../services/user.service';
 import {AdminRegisterRequest} from '../../../model/AdminRegisterRequest';
 import {Role} from '../../../model/role';
+import { RoutingService } from 'src/app/services/routing.service';
+import { Route } from 'src/app/model/routes';
 
 @Component({
   selector: 'app-create-new-admin',
@@ -41,7 +43,8 @@ export class CreateNewAdminComponent implements OnInit {
     return null;
   }
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, 
+              private routingService: RoutingService) { }
 
   ngOnInit() {
   }
@@ -50,7 +53,9 @@ export class CreateNewAdminComponent implements OnInit {
     const payload: AdminRegisterRequest = {name: this.name.value,
       email: this.email.value, password: this.password.value,
     role: Role.Admin};
-    this.userService.createAdmin(payload).subscribe(res => console.log(res));
+    this.userService.createAdmin(payload).subscribe(res => {
+      this.routingService.goTo(Route.SuperAdmin);
+    });
   }
 
 }
