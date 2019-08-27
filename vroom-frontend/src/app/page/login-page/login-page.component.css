@@ -5,5 +5,6 @@
     width: 50%;
     transform: perspective(1px) translateY(50%);
     border-width: 1px;
-    padding: 15px
+    padding: 15px;
+    border-radius: 25px;
 }

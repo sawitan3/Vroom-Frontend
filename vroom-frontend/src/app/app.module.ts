@@ -5,6 +5,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LoginPageComponent} from './page/login-page/login-page.component';
+import { RegisterPageComponent } from './page/register-page/register-page.component';
+import {HttpClientModule} from '@angular/common/http';
+import {CreditCardDirectivesModule} from 'angular-cc-library';
+import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
+import { AutoCompleteComponent } from './google-places.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SuperAdminComponent } from './page/super-admin/super-admin.component';
@@ -20,6 +25,8 @@ import { CustomerContainerComponent } from './container/customer-container/custo
   declarations: [
     AppComponent,
     LoginPageComponent,
+    RegisterPageComponent,
+    AutoCompleteComponent
     NavbarComponent,
     SuperAdminComponent,
     AdminListComponent,
@@ -36,6 +43,9 @@ import { CustomerContainerComponent } from './container/customer-container/custo
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    CreditCardDirectivesModule,
+    GooglePlaceModule
     HttpClientModule
   ],
   providers: [{
