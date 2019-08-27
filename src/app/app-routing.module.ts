@@ -10,8 +10,7 @@ const routes: Routes = [
     {path: RouteMethods.withoutLeadingSlash(Route.Login), component: LoginPageComponent},
     {path: RouteMethods.withoutLeadingSlash(Route.SuperAdmin), component: SuperAdminComponent},
     {path: RouteMethods.withoutLeadingSlash(Route.Admin), component: AdminPageComponent},
-    {path: 'login', component: LoginPageComponent},
-    {path: 'register', component: RegisterPageComponent}];
+    {path: RouteMethods.withoutLeadingSlash(Route.Register), component: RegisterPageComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
