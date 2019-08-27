@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
-  private url = `${environment.baseUrl}/api/users`;
+  private url = `${environment.baseUrl}/users`;
 
   constructor(private httpClient: HttpClient) { }
 
