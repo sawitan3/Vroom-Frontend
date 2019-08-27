@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
-import {RegisterService} from '../services/register.service';
+import {RegisterService} from '../../services/register.service';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 import {FormControl, FormGroup, Validators} from '@angular/forms';

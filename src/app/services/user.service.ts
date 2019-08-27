@@ -5,13 +5,14 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {LoginResponse} from '../model/LoginResponse';
 import {AdminRegisterRequest} from '../model/AdminRegisterRequest';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private url = 'https://powerful-sea-28932.herokuapp.com/api/users';
+  private url = `${environment.baseUrl}/api/users`;
 
   constructor(private httpClient: HttpClient) { }
 
