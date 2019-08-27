@@ -3,13 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {CustomerListResponse} from '../model/CustomerListResponse';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  private url = "https://powerful-sea-28932.herokuapp.com/api/";
+  private url = `${environment.baseUrl}/api/`;
 
   constructor(private httpClient: HttpClient) { }
 
