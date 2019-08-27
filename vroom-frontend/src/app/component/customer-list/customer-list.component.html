@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+  <th scope="col">Name</th>
+  <th scope="col">Email</th>
+  <th scope="col">Status</th>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let customer of customers">
+    <tr>
+      <td>{{customer.name}}</td>
+      <td>{{customer.email}}</td>
+      <td><input type="checkbox" (change)="update(customer.customer_id)" [checked]="customer.status"></td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
