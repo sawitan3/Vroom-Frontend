@@ -52,7 +52,10 @@
     <!--Address-->
     <div class="form-group">
       <label for="address">Address(*)</label>
-      <input ngx-google-places-autocomplete type="text" class="form-control" id="address" placeholder="Address" formControlName="address">
+      <!--<AutoCompleteComponent (setAddress)="getEstablishmentAddress($event)" id="address" formControlName="address" adressType="establishment"></AutoCompleteComponent>-->
+      <input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"
+             type="text" class="form-control" id="address" placeholder="Address" formControlName="address" [options]="{
+             types: [], componentRestrictions: { country: 'AU' }}">
     </div>
 
     <!--Phone Number-->
