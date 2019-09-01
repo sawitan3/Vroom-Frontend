@@ -17,4 +17,9 @@ export class CarsService {
   public getAll(): Observable<CarListResponse> {
     return this.httpClient.get(this.baseUrl).pipe(map((x: any) => ({cars: x.data})));
   }
+
+  public deleteCar(id: number) {
+    const url = `${this.baseUrl}/${id}`;
+    return this.httpClient.delete(url);
+  }
 }

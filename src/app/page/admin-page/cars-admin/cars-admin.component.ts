@@ -20,4 +20,14 @@ export class CarsAdminComponent implements OnInit {
     });
   }
 
+  delete(id) {
+    const car = this.cars.find(x => x.id === id);
+    const deleteConfirmation = confirm(`Are you sure you want to delete car ${car.type}(${car.plate})?`);
+    if (deleteConfirmation) {
+      this.carsService.deleteCar(id).subscribe(res => {
+        window.location.reload();
+      });
+    }
+  }
+
 }
