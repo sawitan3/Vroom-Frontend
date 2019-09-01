@@ -18,12 +18,9 @@ import { CreateNewAdminComponent } from './page/super-admin/create-new-admin/cre
 import {ModalBodyDirective, ModalWrapperComponent} from './component/modal-wrapper/modal-wrapper.component';
 import { AdminPageComponent } from './page/admin-page/admin-page.component';
 import { CustomerContainerComponent } from './container/customer-container/customer-container.component';
-<<<<<<< HEAD
 import { CarCardComponent } from './component/car-card/car-card.component';
 import { CarPageComponent } from './page/car-page/car-page.component';
-=======
 import { CarsAdminComponent } from './page/admin-page/cars-admin/cars-admin.component';
->>>>>>> show list of cars
 
 @NgModule({
   declarations: [
