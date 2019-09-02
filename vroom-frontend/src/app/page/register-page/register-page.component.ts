@@ -1,10 +1,10 @@
 import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
-import {RegisterService} from '../services/register.service';
+import {RegisterService} from '../../services/register.service';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CreditCardValidator} from 'angular-cc-library';
-import {RegisterData} from '../model/RegisterData';
+import {RegisterData} from '../../model/RegisterData';
 import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
 
