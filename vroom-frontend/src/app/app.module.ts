@@ -18,6 +18,8 @@ import { CreateNewAdminComponent } from './page/super-admin/create-new-admin/cre
 import {ModalBodyDirective, ModalWrapperComponent} from './component/modal-wrapper/modal-wrapper.component';
 import { AdminPageComponent } from './page/admin-page/admin-page.component';
 import { CustomerContainerComponent } from './container/customer-container/customer-container.component';
+import { CarCardComponent } from './component/car-card/car-card.component';
+import { CarPageComponent } from './page/car-page/car-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { CustomerContainerComponent } from './container/customer-container/custo
     ModalBodyDirective,
     AdminPageComponent,
     CustomerContainerComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    CarCardComponent,
+    CarPageComponent
   ],
   imports: [
     BrowserModule,
