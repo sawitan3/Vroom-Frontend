@@ -8,7 +8,6 @@ import {LoginPageComponent} from './page/login-page/login-page.component';
 import { RegisterPageComponent } from './page/register-page/register-page.component';
 import {CreditCardDirectivesModule} from 'angular-cc-library';
 import {GooglePlaceModule} from 'ngx-google-places-autocomplete';
-import { AutoCompleteComponent } from './google-places.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SuperAdminComponent } from './page/super-admin/super-admin.component';
@@ -19,13 +18,14 @@ import { CreateNewAdminComponent } from './page/super-admin/create-new-admin/cre
 import {ModalBodyDirective, ModalWrapperComponent} from './component/modal-wrapper/modal-wrapper.component';
 import { AdminPageComponent } from './page/admin-page/admin-page.component';
 import { CustomerContainerComponent } from './container/customer-container/customer-container.component';
+import { CarCardComponent } from './component/car-card/car-card.component';
+import { CarPageComponent } from './page/car-page/car-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    AutoCompleteComponent,
     NavbarComponent,
     SuperAdminComponent,
     AdminListComponent,
@@ -34,7 +34,10 @@ import { CustomerContainerComponent } from './container/customer-container/custo
     ModalWrapperComponent,
     ModalBodyDirective,
     AdminPageComponent,
-    CustomerContainerComponent
+    CustomerContainerComponent,
+    RegisterPageComponent,
+    CarCardComponent,
+    CarPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,12 @@
-import {Component, EventEmitter, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
 import {RegisterService} from '../../services/register.service';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CreditCardValidator} from 'angular-cc-library';
-import {RegisterData} from '../model/RegisterData';
+import {RegisterData} from '../../model/RegisterData';
+import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
+import {Address} from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-register-page',
@@ -13,10 +15,7 @@ import {RegisterData} from '../model/RegisterData';
 })
 export class RegisterPageComponent implements OnInit {
 
-  address: object;
-  establishmentAddress: object;
-
-  formattedEstablishmentAddress: string;
+  @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
   user: RegisterData = {name: '', email: '', password: '', role: 'customer', address: '', phone_number: 0, license_number: '',
     status: false, number: 0, exp_date: '', cc_name: ''};
@@ -72,12 +71,8 @@ export class RegisterPageComponent implements OnInit {
     }
   }
 
-  getEstablishmentAddress(place: object) {
-    this.establishmentAddress = place['formatted_address'];
-    this.formattedEstablishmentAddress = place['formatted_address'];
-    this.zone.run(() => {
-      this.formattedEstablishmentAddress = place['formatted_address'];
-    });
+  public handleAddressChange(address: Address) {
+    this.registerForm.get('address').setValue(address.formatted_address);
   }
 
   goHome(): void {
