@@ -4,6 +4,7 @@ import {Car} from '../../model/Car';
 import {RoutingService} from '../../services/routing.service';
 import {StorageService} from '../../services/storage.service';
 import {Route} from '../../model/routes';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-car-card',
@@ -18,7 +19,8 @@ export class CarCardComponent implements OnInit {
 
   constructor(private carService: CarService,
               private router: RoutingService,
-              private storage: StorageService) { }
+              private storage: StorageService,
+              private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.carService.getCars().subscribe(res => {
@@ -33,5 +35,9 @@ export class CarCardComponent implements OnInit {
 
   linkClick(destination: Route) {
     this.router.goTo(destination);
+  }
+
+  getImagePath(imgPath: any) {
+    return this.sanitizer.bypassSecurityTrustUrl('data:image/jpg;base64,' + imgPath);
   }
 }
