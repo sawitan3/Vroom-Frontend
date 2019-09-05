@@ -34,5 +34,4 @@ export class CarCardComponent implements OnInit {
   linkClick(destination: Route) {
     this.router.goTo(destination);
   }
-
 }
