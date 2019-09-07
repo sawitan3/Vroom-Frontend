@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CarsService} from '../../../services/cars.service';
+import {CarService} from '../../../services/car.service';
 import {Car} from '../../../model/Car';
 
 @Component({
@@ -9,12 +9,12 @@ import {Car} from '../../../model/Car';
 })
 export class CarsAdminComponent implements OnInit {
 
-  constructor(private carsService: CarsService) { }
+  constructor(private carsService: CarService) { }
 
   cars: Car[];
 
   ngOnInit() {
-    this.carsService.getAll().subscribe(res => {
+    this.carsService.getCars().subscribe(res => {
       this.cars = res.cars;
       this.cars.sort((x, y) => x.id > y.id ? 1 : -1);
     });
