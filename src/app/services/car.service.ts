@@ -6,6 +6,8 @@ import {environment} from '../../environments/environment';
 import {map, tap} from 'rxjs/operators';
 import {AddCarRequest} from '../model/AddCarRequest';
 import {hasOwnProperty} from 'tslint/lib/utils';
+import {Car} from '../model/Car';
+import {EditCarRequest} from '../model/EditCarRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -23,12 +25,26 @@ export class CarService {
   }
 
   public deleteCar(id: number) {
-    const url = `${this.baseUrl}/${id}`;
+    const url = this.createIdUrl(id);
     return this.httpClient.delete(url);
   }
 
   public createCar(req: AddCarRequest) {
     return this.httpClient.post(this.baseUrl, this.convertToFormData(req));
+  }
+
+  public getCar(id: number): Observable<Car> {
+    const url = this.createIdUrl(id);
+    return this.httpClient.get(url).pipe(map((x: any) => x.data[0]));
+  }
+
+  public editCar(id: number, payload: EditCarRequest) {
+    const url = this.createIdUrl(id);
+    return this.httpClient.patch(url, this.convertToFormData(payload));
+  }
+
+  private createIdUrl(id: number): string {
+    return `${this.baseUrl}/${id}`;
   }
 
   private convertToFormData(input: any): FormData {
