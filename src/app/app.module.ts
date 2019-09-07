@@ -21,6 +21,7 @@ import { CustomerContainerComponent } from './container/customer-container/custo
 import { CarCardComponent } from './component/car-card/car-card.component';
 import { CarPageComponent } from './page/car-page/car-page.component';
 import { CarsAdminComponent } from './page/admin-page/cars-admin/cars-admin.component';
+import { CreateNewCarComponent } from './page/admin-page/create-new-car/create-new-car.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CarsAdminComponent } from './page/admin-page/cars-admin/cars-admin.comp
     CustomerContainerComponent,
     CarCardComponent,
     CarPageComponent,
-    CarsAdminComponent
+    CarsAdminComponent,
+    CreateNewCarComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,6 @@ import { CarsAdminComponent } from './page/admin-page/cars-admin/cars-admin.comp
     multi: true
   }],
   bootstrap: [AppComponent],
-  entryComponents: [ModalWrapperComponent, CreateNewAdminComponent]
+  entryComponents: [ModalWrapperComponent, CreateNewAdminComponent, CreateNewCarComponent]
 })
 export class AppModule { }
