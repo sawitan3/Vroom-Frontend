@@ -25,6 +25,7 @@ export class CarCardComponent implements OnInit {
   ngOnInit() {
     this.carService.getCars().subscribe(res => {
       this.cars = res.cars;
+      this.cars.map((x: Car) => x.image_path = `data:image/jpeg;base64,${x.image_path}`);
     });
 
     this.isLoggedIn = this.storage.getItem('isLoggedIn') || false;

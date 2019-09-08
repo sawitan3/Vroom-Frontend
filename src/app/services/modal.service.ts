@@ -9,9 +9,10 @@ export class ModalService {
 
   constructor(private modalService: NgbModal) { }
 
-  public open(component: any, title: string) {
+  public open(component: any, title: string, componentInput: {[key: string]: any} = null) {
     const modal = this.modalService.open(ModalWrapperComponent);
     modal.componentInstance.title = title;
     modal.componentInstance.childComponent = component;
+    modal.componentInstance.componentInput = componentInput;
   }
 }

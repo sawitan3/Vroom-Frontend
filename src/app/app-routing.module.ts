@@ -6,15 +6,18 @@ import {SuperAdminComponent} from './page/super-admin/super-admin.component';
 import {AdminPageComponent} from './page/admin-page/admin-page.component';
 import {CarPageComponent} from './page/car-page/car-page.component';
 import {MainPageComponent} from './page/main-page/main-page.component';
+import {AdminGuard} from './guards/admin.guard';
+import {AuthGuard} from './guards/auth.guard';
+import {SuperAdminGuard} from './guards/super-admin.guard';
+import {LoginGuard} from './guards/login.guard';
 
 const routes: Routes = [
-    {path: '', component: MainPageComponent},
-    {path: 'register', component: RegisterPageComponent},
+    {path: 'login', component: LoginPageComponent, canActivate: [LoginGuard]},
+    {path: 'super-admin', component: SuperAdminComponent, canActivate: [AuthGuard, SuperAdminGuard]},
+    {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
+    {path: 'register', component: RegisterPageComponent, canActivate: [LoginGuard]},
     {path: 'list', component: CarPageComponent},
-    {path: 'login', component: LoginPageComponent},
-    {path: 'super-admin', component: SuperAdminComponent},
-    {path: 'admin-page', component: AdminPageComponent}
-    ];
+    {path: '**', component: MainPageComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
