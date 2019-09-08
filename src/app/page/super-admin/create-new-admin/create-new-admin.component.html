@@ -37,6 +37,7 @@
           Passwords does not match
         </small>
       </div>
+    <h6 *ngIf="displayMessage" [ngClass]="{'text-success':!isError, 'text-danger':isError}">{{message}}</h6>
     <button type="submit" class="btn btn-primary rounded-pill" [disabled]="createNewAdminForm.invalid">Register</button>
     </div>
     </div>
