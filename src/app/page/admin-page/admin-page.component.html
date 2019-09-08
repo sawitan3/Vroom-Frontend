@@ -1,4 +1,30 @@
-<div class="container">
-  <h1>Admin Page</h1>
-  <app-customer-container></app-customer-container>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <button class="btn btn-link nav-link">Admins</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-link nav-link">Customers</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-link nav-link">Cars</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-link nav-link">Locations</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="col-auto">
+        <h1>Admin Page</h1>
+        <app-customer-container></app-customer-container>
+      </div>
+    </div>
+  </div>
 </div>
+
+
