@@ -9,13 +9,15 @@ import {AdminGuard} from './guards/admin.guard';
 import {AuthGuard} from './guards/auth.guard';
 import {SuperAdminGuard} from './guards/super-admin.guard';
 import {LoginGuard} from './guards/login.guard';
+import {MainPageComponent} from './main-page/main-page.component';
 
 const routes: Routes = [
     {path: 'login', component: LoginPageComponent, canActivate: [LoginGuard]},
     {path: 'super-admin', component: SuperAdminComponent, canActivate: [AuthGuard, SuperAdminGuard]},
     {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
     {path: 'register', component: RegisterPageComponent, canActivate: [LoginGuard]},
-    {path: 'list', component: CarPageComponent}];
+    {path: 'list', component: CarPageComponent},
+    {path: '**', component: MainPageComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

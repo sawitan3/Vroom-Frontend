@@ -23,6 +23,7 @@ import { CarPageComponent } from './page/car-page/car-page.component';
 import { CarsAdminComponent } from './page/admin-page/cars-admin/cars-admin.component';
 import { CreateNewCarComponent } from './page/admin-page/create-new-car/create-new-car.component';
 import { EditCarComponent } from './page/admin-page/edit-car/edit-car.component';
+import {MainPageComponent} from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EditCarComponent } from './page/admin-page/edit-car/edit-car.component'
     CarPageComponent,
     CarsAdminComponent,
     CreateNewCarComponent,
-    EditCarComponent
+    EditCarComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
