@@ -1,4 +1,16 @@
 <div class="container">
   <h1>Admin Page</h1>
-  <app-customer-container></app-customer-container>
+  <ngb-tabset type="pills">
+    <ngb-tab title="Customers">
+      <ng-template ngbTabContent>
+        <app-customer-container></app-customer-container>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Cars">
+      <ng-template ngbTabContent>
+        <button (click)="createNewCar()" class="btn btn-primary">Add</button>
+        <app-cars-admin></app-cars-admin>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
 </div>

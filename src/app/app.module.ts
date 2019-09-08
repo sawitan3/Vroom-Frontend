@@ -20,6 +20,9 @@ import { AdminPageComponent } from './page/admin-page/admin-page.component';
 import { CustomerContainerComponent } from './container/customer-container/customer-container.component';
 import { CarCardComponent } from './component/car-card/car-card.component';
 import { CarPageComponent } from './page/car-page/car-page.component';
+import { CarsAdminComponent } from './page/admin-page/cars-admin/cars-admin.component';
+import { CreateNewCarComponent } from './page/admin-page/create-new-car/create-new-car.component';
+import { EditCarComponent } from './page/admin-page/edit-car/edit-car.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +38,11 @@ import { CarPageComponent } from './page/car-page/car-page.component';
     ModalBodyDirective,
     AdminPageComponent,
     CustomerContainerComponent,
-    RegisterPageComponent,
     CarCardComponent,
-    CarPageComponent
+    CarPageComponent,
+    CarsAdminComponent,
+    CreateNewCarComponent,
+    EditCarComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,11 @@ import { CarPageComponent } from './page/car-page/car-page.component';
     multi: true
   }],
   bootstrap: [AppComponent],
-  entryComponents: [ModalWrapperComponent, CreateNewAdminComponent]
+  entryComponents: [
+      ModalWrapperComponent,
+    CreateNewAdminComponent,
+    CreateNewCarComponent,
+    EditCarComponent
+  ]
 })
 export class AppModule { }
