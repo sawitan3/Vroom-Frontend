@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Route} from '../../model/routes';
+import {RoutingService} from '../../services/routing.service';
 
 @Component({
   selector: 'app-main-page',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+  public route = Route;
+
+  constructor(private router: RoutingService) { }
 
   ngOnInit() {
+  }
+
+  onClick(destination: Route) {
+    this.router.goTo(destination);
   }
 
 }

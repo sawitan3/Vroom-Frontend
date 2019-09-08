@@ -5,11 +5,11 @@ import {RegisterPageComponent} from './page/register-page/register-page.componen
 import {SuperAdminComponent} from './page/super-admin/super-admin.component';
 import {AdminPageComponent} from './page/admin-page/admin-page.component';
 import {CarPageComponent} from './page/car-page/car-page.component';
+import {MainPageComponent} from './page/main-page/main-page.component';
 import {AdminGuard} from './guards/admin.guard';
 import {AuthGuard} from './guards/auth.guard';
 import {SuperAdminGuard} from './guards/super-admin.guard';
 import {LoginGuard} from './guards/login.guard';
-import {MainPageComponent} from './main-page/main-page.component';
 
 const routes: Routes = [
     {path: 'login', component: LoginPageComponent, canActivate: [LoginGuard]},
