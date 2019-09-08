@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {RegisterData} from '../page/model/RegisterData';
-import { environment } from 'src/environments/environment';
+import {RegisterData} from '../model/RegisterData';
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

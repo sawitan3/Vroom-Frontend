@@ -1,0 +1,14 @@
+.btn-primary{
+  background-color: #FFB271;
+  color: #707070;
+}
+
+.img-fluid{
+  height: auto;
+  width: auto;
+}
+
+.img-thumbnail {
+  height: 200px;
+  width: 200px;
+}
