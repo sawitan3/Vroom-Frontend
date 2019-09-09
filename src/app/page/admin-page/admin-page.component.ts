@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Status} from '../../services/customer.service';
 import {ModalService} from '../../services/modal.service';
 import {CreateNewCarComponent} from './create-new-car/create-new-car.component';
+import {Route} from '../../model/routes';
+import {RoutingService} from '../../services/routing.service';
 
 @Component({
   selector: 'app-admin-page',
@@ -11,8 +13,10 @@ import {CreateNewCarComponent} from './create-new-car/create-new-car.component';
 export class AdminPageComponent implements OnInit {
 
   public status = Status;
+  public route = Route;
 
-  constructor(private modalService: ModalService) { }
+  constructor(private modalService: ModalService,
+              private router: RoutingService) { }
 
   ngOnInit() {
   }
@@ -20,5 +24,4 @@ export class AdminPageComponent implements OnInit {
   createNewCar() {
     this.modalService.open(CreateNewCarComponent, 'Create new car');
   }
-
 }

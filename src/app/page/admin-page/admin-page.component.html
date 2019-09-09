@@ -1,3 +1,29 @@
+<div class="container">
+  <div class="col-auto">
+    <h1>Admin Page</h1>
+    <ngb-tabset type="pills">
+      <ngb-tab title="Customers">
+        <ng-template ngbTabContent>
+          <app-customer-container></app-customer-container>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Cars">
+        <ng-template ngbTabContent>
+          <button (click)="createNewCar()" class="btn btn-primary">Add</button>
+          <app-cars-admin></app-cars-admin>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Locations">
+        <ng-template ngbTabContent>
+          <app-locations-admin></app-locations-admin>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>
+
+
+<!--
 <div class="container-fluid">
   <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -18,23 +44,5 @@
         </ul>
       </div>
     </nav>
-    <div class="container">
-      <div class="col-auto">
-        <h1>Admin Page</h1>
-        <ngb-tabset type="pills">
-          <ngb-tab title="Customers">
-            <ng-template ngbTabContent>
-              <app-customer-container></app-customer-container>
-            </ng-template>
-          </ngb-tab>
-          <ngb-tab title="Cars">
-            <ng-template ngbTabContent>
-              <button (click)="createNewCar()" class="btn btn-primary">Add</button>
-              <app-cars-admin></app-cars-admin>
-            </ng-template>
-          </ngb-tab>
-        </ngb-tabset>
-      </div>
-    </div>
   </div>
-</div>
+</div>-->

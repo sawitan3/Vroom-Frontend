@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+  <th scope="col">ID</th>
+  <th scope="col">Address</th>
+  <th scope="col">Car Slot</th>
+  <th scope="col">Occupied</th>
+  <th scope="col"></th>
+  <th scope="col"></th>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let location of locations">
+    <tr>
+      <td>{{location.id}}</td>
+      <td>{{location.address}}</td>
+      <td>{{location.slot}}</td>
+      <td>{{location.current_car_num}}</td>
+      <button type="button" class="btn btn-secondary" (click)="getLocation(location.address)">Update</button>
+      <button type="button" class="btn btn-danger" (click)="delete(location.id)">Delete</button>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
