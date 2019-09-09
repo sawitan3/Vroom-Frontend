@@ -4,6 +4,7 @@ import {ModalService} from '../../services/modal.service';
 import {CreateNewCarComponent} from './create-new-car/create-new-car.component';
 import {Route} from '../../model/routes';
 import {RoutingService} from '../../services/routing.service';
+import {CreateNewLocationComponent} from './create-new-location/create-new-location.component';
 
 @Component({
   selector: 'app-admin-page',
@@ -23,5 +24,9 @@ export class AdminPageComponent implements OnInit {
 
   createNewCar() {
     this.modalService.open(CreateNewCarComponent, 'Create new car');
+  }
+
+  createNewLocation() {
+    this.modalService.open(CreateNewLocationComponent, 'Create New Location');
   }
 }
