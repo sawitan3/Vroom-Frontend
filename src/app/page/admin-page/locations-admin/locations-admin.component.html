@@ -14,7 +14,7 @@
       <td>{{location.address}}</td>
       <td>{{location.slot}}</td>
       <td>{{location.current_car_num}}</td>
-      <button type="button" class="btn btn-secondary" (click)="getLocation(location.address)">Update</button>
+      <button type="button" class="btn btn-secondary" (click)="edit(location.id)">Update</button>
       <button type="button" class="btn btn-danger" (click)="delete(location.id)">Delete</button>
     </tr>
   </ng-container>

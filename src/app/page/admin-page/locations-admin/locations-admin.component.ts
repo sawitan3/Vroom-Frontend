@@ -4,6 +4,8 @@ import {Location} from '../../../model/Location';
 import {Observable} from 'rxjs';
 // @ts-ignore
 import {} from '@types/googlemaps';
+import {ModalService} from '../../../services/modal.service';
+import {EditLocationComponent} from '../edit-location/edit-location.component';
 
 @Component({
   selector: 'app-locations-admin',
@@ -16,7 +18,8 @@ export class LocationsAdminComponent implements OnInit {
   latitude: number;
   longitude: number;
 
-  constructor(private locationService: LocationService) { }
+  constructor(private locationService: LocationService,
+              private modalService: ModalService) { }
 
   ngOnInit() {
     this.locationService.getLocations().subscribe(res => {
@@ -32,6 +35,11 @@ export class LocationsAdminComponent implements OnInit {
         window.location.reload();
       });
     }
+  }
+
+  edit(id) {
+    const compInput = {locationId: id};
+    this.modalService.open(EditLocationComponent, 'Edit Location', compInput);
   }
 
   findLocation(id) {
