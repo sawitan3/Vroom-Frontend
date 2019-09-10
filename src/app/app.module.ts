@@ -24,6 +24,10 @@ import {MainPageComponent} from './page/main-page/main-page.component';
 import { CarsAdminComponent } from './page/admin-page/cars-admin/cars-admin.component';
 import { CreateNewCarComponent } from './page/admin-page/create-new-car/create-new-car.component';
 import { EditCarComponent } from './page/admin-page/edit-car/edit-car.component';
+import { LocationsAdminComponent } from './page/admin-page/locations-admin/locations-admin.component';
+import { CreateNewLocationComponent } from './page/admin-page/create-new-location/create-new-location.component';
+import { EditLocationComponent } from './page/admin-page/edit-location/edit-location.component';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { EditCarComponent } from './page/admin-page/edit-car/edit-car.component'
     CarsAdminComponent,
     CreateNewCarComponent,
     EditCarComponent,
-    MainPageComponent
+    MainPageComponent,
+    LocationsAdminComponent,
+    CreateNewLocationComponent,
+    EditLocationComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,10 @@ import { EditCarComponent } from './page/admin-page/edit-car/edit-car.component'
     HttpClientModule,
     CreditCardDirectivesModule,
     GooglePlaceModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAAjrrOQE7VlYof8Bf2CHuOpaUU_LIcWCo'
+    })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
@@ -64,10 +74,12 @@ import { EditCarComponent } from './page/admin-page/edit-car/edit-car.component'
   }],
   bootstrap: [AppComponent],
   entryComponents: [
-      ModalWrapperComponent,
+    ModalWrapperComponent,
     CreateNewAdminComponent,
     CreateNewCarComponent,
-    EditCarComponent
+    EditCarComponent,
+    CreateNewLocationComponent,
+    EditLocationComponent
   ]
 })
 export class AppModule { }
