@@ -1,0 +1,15 @@
+<div>
+  <form [formGroup]="createNewLocationForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"
+             type="text" class="form-control" id="address" placeholder="Address" formControlName="address" [options]="{
+             types: [], componentRestrictions: { country: 'AU' }}">
+    </div>
+    <div class="form-group">
+      <label for="slot">Car Slot</label>
+      <input class="form-control" id="slot" type="number" formControlName="slot">
+    </div>
+    <button type="submit" class="btn btn-primary rounded-pill">Add New Location</button>
+  </form>
+</div>
