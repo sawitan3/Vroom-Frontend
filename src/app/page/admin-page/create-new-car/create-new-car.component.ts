@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CarService} from '../../../services/car.service';
 import {AddCarRequest} from '../../../model/AddCarRequest';
+import {Location} from '../../../model/Location';
+import {LocationService} from '../../../services/location.service';
 
 @Component({
   selector: 'app-create-new-car',
@@ -9,6 +11,8 @@ import {AddCarRequest} from '../../../model/AddCarRequest';
   styleUrls: ['./create-new-car.component.css']
 })
 export class CreateNewCarComponent implements OnInit {
+
+  locations: Array<Location>
 
   createNewCarForm = new FormGroup({
     type: new FormControl('', [Validators.required]),
@@ -33,9 +37,13 @@ export class CreateNewCarComponent implements OnInit {
     return null;
   }
 
-  constructor(private carService: CarService) { }
+  constructor(private carService: CarService, private locationService: LocationService) { }
 
   ngOnInit() {
+    this.locationService.getLocations().subscribe(res => {
+      this.locations = res.locations.filter(val => val.current_car_num < val.slot);
+      this.createNewCarForm.patchValue({locationId: this.locations[0].id});
+    });
   }
 
   submit() {
