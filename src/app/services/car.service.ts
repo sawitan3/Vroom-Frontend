@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CarListResponse} from '../model/CarListResponse';
 import {environment} from '../../environments/environment';
 import {map, tap} from 'rxjs/operators';
 import {AddCarRequest} from '../model/AddCarRequest';
-import {hasOwnProperty} from 'tslint/lib/utils';
 import {Car} from '../model/Car';
 import {EditCarRequest} from '../model/EditCarRequest';
+
 
 @Injectable({
   providedIn: 'root'
@@ -40,17 +40,23 @@ export class CarService {
 
   public editCar(id: number, payload: EditCarRequest) {
     const url = this.createIdUrl(id);
-    return this.httpClient.patch(url, this.convertToFormData(payload));
+    return this.httpClient.post(url, this.generateEditPayload(payload));
   }
 
   private createIdUrl(id: number): string {
     return `${this.baseUrl}/${id}`;
   }
 
+  private generateEditPayload(input: EditCarRequest): FormData {
+    const data = this.convertToFormData(input);
+    data.append('_method', 'PUT');
+    return data;
+  }
+
   private convertToFormData(input: any): FormData {
     const res = new FormData();
     for (const key in input) {
-      if (hasOwnProperty(input, key)) {
+      if (input.hasOwnProperty(key)) {
         res.append(key, input[key]);
       }
     }
