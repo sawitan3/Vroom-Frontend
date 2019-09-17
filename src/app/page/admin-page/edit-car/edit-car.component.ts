@@ -3,6 +3,9 @@ import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/form
 import {CarService} from '../../../services/car.service';
 import {AddCarRequest} from '../../../model/AddCarRequest';
 import {EditCarRequest} from '../../../model/EditCarRequest';
+import {LocationService} from '../../../services/location.service';
+import {Location} from '../../../model/Location';
+
 
 @Component({
   selector: 'app-edit-car',
@@ -10,6 +13,8 @@ import {EditCarRequest} from '../../../model/EditCarRequest';
   styleUrls: ['./edit-car.component.css']
 })
 export class EditCarComponent implements OnInit {
+
+  locations: Array<Location>
 
   @Input()
   carId: number;
@@ -37,7 +42,7 @@ export class EditCarComponent implements OnInit {
     return null;
   }
 
-  constructor(private carService: CarService) { }
+  constructor(private carService: CarService, private locationService: LocationService) { }
 
   ngOnInit() {
     this.carService.getCar(this.carId).subscribe(res => {
@@ -47,6 +52,9 @@ export class EditCarComponent implements OnInit {
         capacity: res.capacity,
         availability: !!res.availability,
         locationId: res.location_id
+      });
+      this.locationService.getLocations().subscribe(result => {
+        this.locations = result.locations.filter(loc => loc.current_car_num <= loc.slot);
       });
     });
   }
@@ -61,7 +69,7 @@ export class EditCarComponent implements OnInit {
     if (this.image.value !== null) {
       payload.cover_image = this.image.value;
     }
-    this.carService.editCar(this.carId, payload).subscribe( res => console.log(res), err => console.error(err));
+    this.carService.editCar(this.carId, payload).subscribe( res => window.location.reload(), err => console.error(err));
   }
 
 }

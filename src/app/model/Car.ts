@@ -6,7 +6,8 @@ export class Car {
     capacity: number;
     image_path: string;
     availability: boolean;
-    coordinate: string;
+    latitude: number;
+    longitude: number;
     address: string;
     slot: number;
     current_car_num: number;

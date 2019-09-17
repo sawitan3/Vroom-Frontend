@@ -19,6 +19,12 @@
       </div>
     </div>
     <div class="form-group">
+      <label for="location">Car location</label>
+      <select id="location" formControlName="locationId">
+        <option *ngFor="let loc of locations" [ngValue]="loc.id">{{loc.address}}</option>
+      </select>
+    </div>
+    <div class="form-group">
       <label for="capacity">Car capacity</label>
       <input type="number" class="form-control" id="capacity" formControlName="capacity">
       <div *ngIf="capacity.invalid && (capacity.dirty || capacity.touched)">
