@@ -14,15 +14,22 @@
       <li class="nav-item">
         <button class="btn btn-link nav-link" (click)="linkClick(route.List)">Our Cars</button>
       </li>
-      <li class="nav-item" *ngIf="!isLoggedIn">
-        <button class="btn btn-link nav-link" (click)="linkClick(route.Login)">Login</button>
-      </li>
-      <li class="nav-item" *ngIf="!isLoggedIn">
-        <button class="btn btn-link nav-link" (click)="linkClick(route.Register)">Register</button>
-      </li>
-      <li class="nav-item" *ngIf="isLoggedIn">
-        <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
-      </li>
+      <ng-container *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <button class="btn btn-link nav-link" (click)="linkClick(route.Login)">Login</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-link nav-link" (click)="linkClick(route.Register)">Register</button>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <app-role-entry></app-role-entry>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
+        </li>
+      </ng-container>
     </ul>
   </div>
 </nav>

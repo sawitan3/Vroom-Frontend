@@ -1,0 +1,11 @@
+<ng-container>
+  <ng-container *ngIf="role == roles.Customer">
+    <button class="btn btn-link nav-link" (click)="linkClick(route.Me)">Profile</button>
+  </ng-container>
+  <ng-container *ngIf="role == roles.SuperAdmin">
+    <button class="btn btn-link nav-link" (click)="linkClick(route.SuperAdmin)">SuperAdmin</button>
+  </ng-container>
+  <ng-container *ngIf="role == roles.Admin">
+    <button class="btn btn-link nav-link" (click)="linkClick(route.Admin)">Admin</button>
+  </ng-container>
+</ng-container>
