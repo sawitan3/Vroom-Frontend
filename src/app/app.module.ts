@@ -31,6 +31,7 @@ import {AgmCoreModule} from '@agm/core';
 import { ProfileContainerComponent } from './container/profile-container/profile-container.component';
 import { CurrentUserComponent } from './page/current-user/current-user.component';
 import {UserProfileComponent} from './component/user-profile/user-profile.component';
+import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {UserProfileComponent} from './component/user-profile/user-profile.compon
     EditLocationComponent,
     UserProfileComponent,
     ProfileContainerComponent,
-    CurrentUserComponent
+    CurrentUserComponent,
+    RoleEntryComponent
   ],
   imports: [
     BrowserModule,

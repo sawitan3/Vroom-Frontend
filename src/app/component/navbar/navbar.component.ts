@@ -14,7 +14,6 @@ export class NavbarComponent implements OnInit {
 
   isNavbarCollapsed = true;
   isLoggedIn: boolean;
-  aCustomer: boolean | string;
   constructor(private router: RoutingService,
               private storage: StorageService) { }
 
@@ -22,9 +21,7 @@ export class NavbarComponent implements OnInit {
     this.isLoggedIn = this.storage.getItem('isLoggedIn') || false;
     this.storage.watchStorage().subscribe(() => {
       this.isLoggedIn = this.storage.getItem('isLoggedIn') || false;
-      this.aCustomer = this.storage.getItem('customerId') || false;
     });
-    this.aCustomer = this.storage.getItem('customerId') || false;
   }
 
   linkClick(destination: Route) {
