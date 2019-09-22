@@ -12,7 +12,7 @@ import {Role} from '../../../model/role';
 export class RoleEntryComponent implements OnInit {
   public route = Route;
   public roles = Role;
-  private role: Role;
+  public role: Role;
 
   constructor(private router: RoutingService, private storage: StorageService) { }
 
