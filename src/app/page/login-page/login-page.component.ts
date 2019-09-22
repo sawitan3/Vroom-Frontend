@@ -54,6 +54,12 @@ export class LoginPageComponent implements OnInit {
     this.storageService.setItem('token', res.token);
     this.storageService.setItem('role', res.role);
     this.storageService.setItem('isLoggedIn', true);
+    if (res.customer_id) {
+      this.storageService.setItem('customerId', res.customer_id);
+      this.storageService.setItem('id', res.user_id);
+    } else {
+      this.storageService.setItem('id', res.id);
+    }
     this.routingService.redirectAfterLogin(res.role);
   }
 }

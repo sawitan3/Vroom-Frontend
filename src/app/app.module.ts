@@ -28,6 +28,9 @@ import { LocationsAdminComponent } from './page/admin-page/locations-admin/locat
 import { CreateNewLocationComponent } from './page/admin-page/create-new-location/create-new-location.component';
 import { EditLocationComponent } from './page/admin-page/edit-location/edit-location.component';
 import {AgmCoreModule} from '@agm/core';
+import { ProfileContainerComponent } from './container/profile-container/profile-container.component';
+import { CurrentUserComponent } from './page/current-user/current-user.component';
+import {UserProfileComponent} from './component/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import {AgmCoreModule} from '@agm/core';
     MainPageComponent,
     LocationsAdminComponent,
     CreateNewLocationComponent,
-    EditLocationComponent
+    EditLocationComponent,
+    UserProfileComponent,
+    ProfileContainerComponent,
+    CurrentUserComponent
   ],
   imports: [
     BrowserModule,

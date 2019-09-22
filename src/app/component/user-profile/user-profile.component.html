@@ -1,0 +1,32 @@
+<div class="outer">
+  <div class="middle">
+    <div class="container inner">
+      <ng-container *ngIf="customerDetail">
+        <h1>{{customerDetail.name}}</h1>
+        <ng-container>
+          <ngb-accordion activeIds="ngb-panel-0">
+            <ngb-panel title="Personal Details">
+              <ng-template ngbPanelContent>
+                Email: <span>{{customerDetail.email}}</span>
+                Phone number: <span>{{customerDetail.phone_number}}</span>
+                Address: <span>{{customerDetail.address}}</span>
+                License number: <span>{{customerDetail.license_number}}</span>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Payment Details">
+              <ng-template ngbPanelContent>
+                Credit card number: <span>{{customerDetail.number}}</span>
+                Expiry date: <span>{{customerDetail.exp_date}}</span>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </ng-container>
+        <span></span>
+        <button (click)="goBack()" class="btn-primary rounded">Go back</button>
+      </ng-container>
+      <ng-container *ngIf="!customerDetail">
+        Loading...
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {CustomerListResponse} from '../model/CustomerListResponse';
 import { environment } from 'src/environments/environment.prod';
+import {Customer} from '../model/Customer';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,12 @@ export class CustomerService {
         .pipe(map((x: any) => ({customers: x.data})));
   }
 
-  public toggleCustomer(id: number): Observable<any>{
+  public getCustomer(id: number): Observable<Customer> {
+    const url = `${this.url}customers/${id}`;
+    return this.httpClient.get(url).pipe(map((x: any) => x.data[0] as Customer));
+  }
+
+  public toggleCustomer(id: number): Observable<any> {
     const url = `${this.url}users/activate/${id}`;
     return this.httpClient.put(url, null);
   }

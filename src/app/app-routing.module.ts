@@ -10,12 +10,15 @@ import {AdminGuard} from './guards/admin.guard';
 import {AuthGuard} from './guards/auth.guard';
 import {SuperAdminGuard} from './guards/super-admin.guard';
 import {LoginGuard} from './guards/login.guard';
+import {CurrentUserComponent} from './page/current-user/current-user.component';
+import {CustomerGuard} from './guards/customer.guard';
 
 const routes: Routes = [
     {path: 'login', component: LoginPageComponent, canActivate: [LoginGuard]},
     {path: 'super-admin', component: SuperAdminComponent, canActivate: [AuthGuard, SuperAdminGuard]},
     {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
     {path: 'register', component: RegisterPageComponent, canActivate: [LoginGuard]},
+    {path: 'me', component: CurrentUserComponent, canActivate: [AuthGuard, CustomerGuard]},
     {path: 'list', component: CarPageComponent},
     {path: '**', component: MainPageComponent}];
 

@@ -4,12 +4,6 @@ export enum Route {
     Register = '/register',
     List = '/list',
     Admin = '/admin-page',
-    SuperAdmin = '/super-admin'
-}
-
-
-export class RouteMethods {
-    public static withoutLeadingSlash(route: Route) {
-        return route.substr(1);
-    }
+    SuperAdmin = '/super-admin',
+    Me = '/me'
 }
