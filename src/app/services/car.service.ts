@@ -20,7 +20,8 @@ export class CarService {
 
   public getCars(): Observable<CarListResponse> {
     return this.httpClient.get(this.baseUrl)
-      .pipe(map((x: any) => ({cars: x.data}))
+      .pipe(map((x: any) =>
+          ({cars: x.data.map((y: Car) => {y.image_path = `data:image/jpeg;base64,${y.image_path}`; return y; })}))
       );
   }
 
