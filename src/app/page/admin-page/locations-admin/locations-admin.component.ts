@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {LocationService} from '../../../services/location.service';
 import {Location} from '../../../model/Location';
-import {Observable} from 'rxjs';
 // @ts-ignore
 import {} from '@types/googlemaps';
 import {ModalService} from '../../../services/modal.service';
 import {EditLocationComponent} from '../edit-location/edit-location.component';
+declare let L;
 
 @Component({
   selector: 'app-locations-admin',
@@ -15,8 +15,8 @@ import {EditLocationComponent} from '../edit-location/edit-location.component';
 export class LocationsAdminComponent implements OnInit {
 
   locations: Location[];
-  latitude: number;
-  longitude: number;
+  latitude: number[];
+  longitude: number[];
 
   constructor(private locationService: LocationService,
               private modalService: ModalService) { }
@@ -25,12 +25,15 @@ export class LocationsAdminComponent implements OnInit {
     this.locationService.getLocations().subscribe(res => {
       this.locations = res.locations;
     });
+
+
+    this.initializeMaps();
   }
 
   delete(id) {
     const location = this.findLocation(id);
     const deleteConfirmation = confirm(`Are you sure you want to delete location ${location.address}?`);
-    if(deleteConfirmation) {
+    if (deleteConfirmation) {
       this.locationService.deleteLocation(id).subscribe(res => {
         window.location.reload();
       });
@@ -45,6 +48,22 @@ export class LocationsAdminComponent implements OnInit {
   findLocation(id) {
     return this.locations.find(x => x.id === id);
   }
+
+  initializeMaps() {
+    const map = L.map('mapId').setView([-37.8104234, 144.9607266], 13);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1Ijoic2Fyc3UiLCJhIjoiY2swdnljcjBiMDlxejNlcGY3endtaTJlYiJ9.NFfBqwPkWJopMmKo-zscAA'
+    }).addTo(map);
+
+    //add the array of coordinates later
+    const polygon = L.polygon([]).addTo(map);
+  }
+
 
   // getLocation(address: string) {
   //   console.log('Getting address: ', address);
@@ -66,7 +85,7 @@ export class LocationsAdminComponent implements OnInit {
       this.latitude = res[0];
       this.longitude = res[1];
     });
-    if (this.latitude != null && this.longitude != null){
+    if (this.latitude != null && this.longitude != null) {
       console.log('Latitude: ' + this.latitude + ', Longitude: ' + this.longitude);
     }
   }

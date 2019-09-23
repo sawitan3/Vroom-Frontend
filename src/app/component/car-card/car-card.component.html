@@ -1,21 +1,24 @@
-<div class="card" *ngFor="let car of cars">
-  <div class="row no-gutters">
-    <div class="col-auto">
-      <img src="{{car.image_path}}"
-           class="img-fluid img-thumbnail" alt="Image not available">
-    </div>
-    <div class="col">
-      <div class="card-block px-2">
-        <h4 class="card-title">{{car.type}}</h4>
-        <p class="card-text">Capacity: {{car.capacity}}</p>
-        <div *ngIf="car.availability; else elseBlock">
-          <button *ngIf="!isLoggedIn" (click)="linkClick(route.Login)" class="btn btn-primary">Book Now!</button>
-          <button *ngIf="isLoggedIn" class="btn btn-primary">Book Now!</button>
+<div *ngFor="let car of cars">
+  <div class="card">
+    <div class="row no-gutters">
+      <div class="col-auto">
+        <img src="{{car.image_path}}"
+             class="img-fluid img-thumbnail" alt="Image not available">
+      </div>
+      <div class="col">
+        <div class="card-block px-2">
+          <h4 class="card-title">{{car.type}}</h4>
+          <p class="card-text">Capacity: {{car.capacity}}</p>
+          <div *ngIf="car.availability; else elseBlock">
+            <button *ngIf="!isLoggedIn" (click)="linkClick(route.Login)" class="btn btn-primary">Book Now!</button>
+            <button *ngIf="isLoggedIn" class="btn btn-primary">Book Now!</button>
+          </div>
+          <ng-template #elseBlock>
+            <button class="btn btn-secondary" disabled>Not Available</button>
+          </ng-template>
         </div>
-        <ng-template #elseBlock>
-          <button class="btn btn-secondary" disabled>Not Available</button>
-        </ng-template>
       </div>
     </div>
   </div>
+  <div class="space"></div>
 </div>
