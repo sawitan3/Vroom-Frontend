@@ -19,6 +19,7 @@
       <label for="return-date">Return time: </label>
       <app-datetime-picker id="return-date" (valueChange)="onDateTimeChange($event, 'returnTime')"></app-datetime-picker>
     </div>
+    <div *ngIf="error" class="text-danger">Error: {{error}}</div>
     <button type="submit" class="btn btn-success rounded-pill">Book!</button>
 
   </form>

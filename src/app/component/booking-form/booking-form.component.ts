@@ -28,6 +28,8 @@ export class BookingFormComponent implements OnInit {
   currentCar: Car;
   locations: Array<Location>;
 
+  error: any = null;
+
   bookingForm = new FormGroup({
     returnLocation: new FormControl('', [Validators.required]),
     beginTime: new FormControl('', [Validators.required]),
@@ -75,7 +77,7 @@ export class BookingFormComponent implements OnInit {
         this.routingService.goTo(Route.Me);
         this.modalService.close();
       }, 5000);
-    });
+    }, err => this.error = err.error.error1);
   }
 
 }
