@@ -32,6 +32,7 @@ import { ProfileContainerComponent } from './container/profile-container/profile
 import { CurrentUserComponent } from './page/current-user/current-user.component';
 import {UserProfileComponent} from './component/user-profile/user-profile.component';
 import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.component';
+import { BookingsAdminComponent } from './page/admin-page/bookings-admin/bookings-admin.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.com
     UserProfileComponent,
     ProfileContainerComponent,
     CurrentUserComponent,
-    RoleEntryComponent
+    RoleEntryComponent,
+    BookingsAdminComponent
   ],
   imports: [
     BrowserModule,
