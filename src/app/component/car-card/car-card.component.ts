@@ -33,8 +33,8 @@ export class CarCardComponent implements OnInit {
     });
   }
 
-  linkClick(destination: Route) {
-    this.router.goTo(destination);
+  linkClick(destination: Route, carId: number) {
+    this.router.go(destination, {carId});
   }
 
   getImagePath(imgPath: any) {
