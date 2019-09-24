@@ -5,6 +5,7 @@ import {Location} from '../../../model/Location';
 import {} from '@types/googlemaps';
 import {ModalService} from '../../../services/modal.service';
 import {EditLocationComponent} from '../edit-location/edit-location.component';
+import {MapCoordinates} from '../../../model/MapCoordinates';
 declare let L;
 
 @Component({
@@ -15,8 +16,10 @@ declare let L;
 export class LocationsAdminComponent implements OnInit {
 
   locations: Location[];
+  mapCoordinates: MapCoordinates[];
   latitude: number[];
   longitude: number[];
+  coordinates = [];
 
   constructor(private locationService: LocationService,
               private modalService: ModalService) { }
@@ -24,10 +27,19 @@ export class LocationsAdminComponent implements OnInit {
   ngOnInit() {
     this.locationService.getLocations().subscribe(res => {
       this.locations = res.locations;
+
+      this.latitude = res.locations.map(({latitude}) => latitude);
+      this.longitude = res.locations.map(({longitude}) => longitude);
+
+
+      for (let i = 0; i < this.locations.length; i++) {
+        this.coordinates.push([this.latitude[i], this.longitude[i]]);
+      }
+
+      console.log(this.coordinates);
+
+      this.initializeMaps();
     });
-
-
-    this.initializeMaps();
   }
 
   delete(id) {
@@ -60,8 +72,11 @@ export class LocationsAdminComponent implements OnInit {
       accessToken: 'pk.eyJ1Ijoic2Fyc3UiLCJhIjoiY2swdnljcjBiMDlxejNlcGY3endtaTJlYiJ9.NFfBqwPkWJopMmKo-zscAA'
     }).addTo(map);
 
-    //already changed in maps branch
-    const polygon = L.polygon([]).addTo(map);
+    let marker;
+
+    for (const coordinate of this.coordinates) {
+      marker = new L.marker(coordinate).addTo(map);
+    }
   }
 
 
