@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Register</h1>
+  <form [formGroup]="bookingForm">
+
+    <div class="form-group">
+      Current car: {{currentCar | carDisplay}}
+    </div>
+    <div class="form-group">
+      <label for="location">Return location: </label>
+      <select id="location" formControlName="returnLocation">
+        <option *ngFor="let loc of locations" [ngValue]="loc.id">{{loc.address}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success rounded-pill">Register</button>
+
+  </form>
+</div>

@@ -32,6 +32,9 @@ import { ProfileContainerComponent } from './container/profile-container/profile
 import { CurrentUserComponent } from './page/current-user/current-user.component';
 import {UserProfileComponent} from './component/user-profile/user-profile.component';
 import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.component';
+import { BookingPageComponent } from './page/booking-page/booking-page.component';
+import { BookingFormComponent } from './component/booking-form/booking-form.component';
+import { CarDisplayPipe } from './pipes/car-display.pipe';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,10 @@ import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.com
     UserProfileComponent,
     ProfileContainerComponent,
     CurrentUserComponent,
-    RoleEntryComponent
+    RoleEntryComponent,
+    BookingPageComponent,
+    BookingFormComponent,
+    CarDisplayPipe
   ],
   imports: [
     BrowserModule,

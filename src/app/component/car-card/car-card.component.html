@@ -9,8 +9,7 @@
         <h4 class="card-title">{{car.type}}</h4>
         <p class="card-text">Capacity: {{car.capacity}}</p>
         <div *ngIf="car.availability; else elseBlock">
-          <button *ngIf="!isLoggedIn" (click)="linkClick(route.Login)" class="btn btn-primary">Book Now!</button>
-          <button *ngIf="isLoggedIn" class="btn btn-primary">Book Now!</button>
+          <button *ngIf="isLoggedIn" (click)="linkClick(route.Booking, car.id)" class="btn btn-primary">Book Now!</button>
         </div>
         <ng-template #elseBlock>
           <button class="btn btn-secondary" disabled>Not Available</button>
