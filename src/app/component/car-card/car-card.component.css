@@ -4,12 +4,16 @@
   border-color: #FFB271;
 }
 
-.img-fluid{
+.img-thumbnail {
   height: auto;
-  width: auto;
+  width: 100%;
 }
 
-.img-thumbnail {
-  height: 200px;
+.col-auto {
   width: 200px;
 }
+
+.space {
+  height: 5px;
+}
+

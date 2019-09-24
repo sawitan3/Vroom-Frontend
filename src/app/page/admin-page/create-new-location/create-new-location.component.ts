@@ -28,7 +28,7 @@ export class CreateNewLocationComponent implements OnInit {
   }
 
   submit() {
-    const payload: AddLocationRequest = {address: this.address.value, coordinate: '0,0',
+    const payload: AddLocationRequest = {address: this.address.value, latitude: 0, longitude: 0,
       slot: this.slot.value, current_car_num: 0};
     console.log(payload);
     this.locationService.createLocation(payload).subscribe(res =>

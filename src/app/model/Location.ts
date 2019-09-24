@@ -1,7 +1,8 @@
 export class Location {
   id: number;
   address: string;
-  coordinate: string;
+  latitude: number;
+  longitude: number;
   slot: number;
   current_car_num: number;
 }

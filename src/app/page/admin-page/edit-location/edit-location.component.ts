@@ -17,7 +17,8 @@ export class EditLocationComponent implements OnInit {
 
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
-  coordinate: string;
+  latitude: number;
+  longitude: number;
   current_car_num: number;
 
   editLocationForm = new FormGroup({
@@ -37,7 +38,8 @@ export class EditLocationComponent implements OnInit {
         address: res.address,
         slot: res.slot
       });
-      this.coordinate = res.coordinate;
+      this.latitude = res.latitude;
+      this.longitude = res.longitude;
       this.current_car_num = res.current_car_num;
     });
   }
@@ -48,7 +50,7 @@ export class EditLocationComponent implements OnInit {
 
   // add the change coordinate later
   submit() {
-    const payload: EditLocationRequest = {address: this.address.value, coordinate: this.coordinate,
+    const payload: EditLocationRequest = {address: this.address.value, latitude: this.latitude, longitude: this.longitude,
       slot: this.slot.value, current_car_num: this.current_car_num};
     this.locationService.editLocation(this.locationId, payload).subscribe(res => window.location.reload(),
         err => console.error(err));
