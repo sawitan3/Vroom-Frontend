@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Register</h1>
-  <form [formGroup]="bookingForm">
+  <h1>Add new booking</h1>
+  <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       Current car: {{currentCar | carDisplay}}
@@ -11,7 +11,15 @@
         <option *ngFor="let loc of locations" [ngValue]="loc.id">{{loc.address}}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-success rounded-pill">Register</button>
+    <div class="form-group">
+      <label for="begin-date">Begin time: </label>
+      <app-datetime-picker id="begin-date" (valueChange)="onDateTimeChange($event, 'beginTime')"></app-datetime-picker>
+    </div>
+    <div class="form-group">
+      <label for="return-date">Return time: </label>
+      <app-datetime-picker id="return-date" (valueChange)="onDateTimeChange($event, 'returnTime')"></app-datetime-picker>
+    </div>
+    <button type="submit" class="btn btn-success rounded-pill">Book!</button>
 
   </form>
 </div>

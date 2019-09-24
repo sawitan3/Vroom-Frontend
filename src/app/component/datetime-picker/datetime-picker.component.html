@@ -1,0 +1,7 @@
+<ng-container>
+  <button (click)="opened = !opened" type="button">Set date/time</button>
+  <div *ngIf="opened" class="bordered-container">
+    <ngb-datepicker [minDate]="minDate" [(ngModel)]="selectedDate" (ngModelChange)="update()"></ngb-datepicker>
+    <ngb-timepicker [(ngModel)]="time" (ngModelChange)="update()" ></ngb-timepicker>
+  </div>
+</ng-container>
