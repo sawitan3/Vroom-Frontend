@@ -9,6 +9,9 @@ import {map} from 'rxjs/operators';
 import {AddBookingRequest} from '../../model/AddBookingRequest';
 import {DatetimeService} from '../../services/datetime.service';
 import {BookingService} from '../../services/booking.service';
+import {ModalService} from '../../services/modal.service';
+import {RoutingService} from '../../services/routing.service';
+import {Route} from '../../model/routes';
 
 @Component({
   selector: 'app-booking-form',
@@ -35,7 +38,9 @@ export class BookingFormComponent implements OnInit {
               private locationService: LocationService,
               private storageService: StorageService,
               private datetimeService: DatetimeService,
-              private bookingService: BookingService) { }
+              private bookingService: BookingService,
+              private modalService: ModalService,
+              private routingService: RoutingService) { }
 
   ngOnInit() {
     const currentCar = this.carService.getCar(this.carId).toPromise();
@@ -63,7 +68,14 @@ export class BookingFormComponent implements OnInit {
       begin_time: this.bookingForm.get('beginTime').value,
       return_time: this.bookingForm.get('returnTime').value
     };
-    this.bookingService.createBooking(payload).subscribe(res => console.log(res));
+    this.bookingService.createBooking(payload).subscribe(res => {
+      this.modalService.message('Booking successful!',
+        'Booking is successful, redirecting in 5 seconds.');
+      setTimeout(() => {
+        this.routingService.goTo(Route.Me);
+        this.modalService.close();
+      }, 5000);
+    });
   }
 
 }

@@ -97,7 +97,8 @@ import { GenericMessageComponent } from './component/modal-wrapper/generic-messa
     CreateNewCarComponent,
     EditCarComponent,
     CreateNewLocationComponent,
-    EditLocationComponent
+    EditLocationComponent,
+    GenericMessageComponent
   ]
 })
 export class AppModule { }
