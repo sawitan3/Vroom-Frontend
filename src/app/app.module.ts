@@ -32,6 +32,8 @@ import { ProfileContainerComponent } from './container/profile-container/profile
 import { CurrentUserComponent } from './page/current-user/current-user.component';
 import {UserProfileComponent} from './component/user-profile/user-profile.component';
 import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.component';
+import { BookingsAdminComponent } from './page/admin-page/bookings-admin/bookings-admin.component';
+import { AdminBookingDetailsComponent } from './page/admin-page/admin-booking-details/admin-booking-details.component';
 import { BookingPageComponent } from './page/booking-page/booking-page.component';
 import { BookingFormComponent } from './component/booking-form/booking-form.component';
 import { CarDisplayPipe } from './pipes/car-display.pipe';
@@ -65,6 +67,8 @@ import { GenericMessageComponent } from './component/modal-wrapper/generic-messa
     ProfileContainerComponent,
     CurrentUserComponent,
     RoleEntryComponent,
+    BookingsAdminComponent,
+    AdminBookingDetailsComponent,
     BookingPageComponent,
     BookingFormComponent,
     CarDisplayPipe,
@@ -98,6 +102,7 @@ import { GenericMessageComponent } from './component/modal-wrapper/generic-messa
     EditCarComponent,
     CreateNewLocationComponent,
     EditLocationComponent,
+    AdminBookingDetailsComponent,
     GenericMessageComponent
   ]
 })

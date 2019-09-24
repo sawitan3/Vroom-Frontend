@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <th scope="col">ID</th>
+    <th scope="col">Customer</th>
+    <th scope="col">Car</th>
+    <th scope="col">Start Date</th>
+    <th scope="col">End Date</th>
+    <th scope="col">Status</th>
+    <th scope="col"></th>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let booking of bookings">
+    <tr>
+      <td>{{booking.id}}</td>
+      <td>{{booking.name}}</td>
+      <td>{{booking.type}}</td>
+      <td>{{booking.begin_time}}</td>
+      <td>{{booking.return_time}}</td>
+      <td *ngIf="booking.status==0">Inactive</td>
+      <td *ngIf="booking.status==1">Active</td>
+      <td>
+        <button type="button" class="btn btn-secondary" (click)="details(booking)">Details</button>
+      </td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
