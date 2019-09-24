@@ -1,0 +1,79 @@
+<table class="table">
+  <thead>
+  <th scope="col">Details</th>
+  <th scope="col"></th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Booking ID</td>
+    <td>{{booking.id}}</td>
+  </tr>
+  <tr>
+    <td>Start Date</td>
+    <td>{{booking.begin_time}}</td>
+  </tr>
+  <tr>
+    <td>End Date</td>
+    <td>{{booking.return_time}}</td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td *ngIf="booking.status==0">Inactive</td>
+    <td *ngIf="booking.status==1">Active</td>
+  </tr>
+  </tbody>
+
+  <thead>
+    <th scope="col">Customer Details</th>
+    <th scope="col"></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>{{booking.customer_id}}</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>{{booking.name}}</td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td>{{booking.phone_number}}</td>
+    </tr>
+    <tr>
+      <td>Credit Card</td>
+      <td>{{booking.number}}</td>
+    </tr>
+    <tr>
+      <td>Expiry Date</td>
+      <td>{{booking.exp_date}}</td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <th scope="col">Car Details</th>
+    <th scope="col"></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>{{booking.car_id}}</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>{{booking.type}}</td>
+    </tr>
+    <tr>
+      <td>Plate</td>
+      <td>{{booking.plate}}</td>
+    </tr>
+    <tr>
+      <td>Capacity</td>
+      <td>{{booking.capacity}}</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>{{booking.address}}</td>
+    </tr>
+  </tbody>
+</table>

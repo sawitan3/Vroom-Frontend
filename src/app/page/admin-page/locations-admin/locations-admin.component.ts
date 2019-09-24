@@ -60,7 +60,7 @@ export class LocationsAdminComponent implements OnInit {
       accessToken: 'pk.eyJ1Ijoic2Fyc3UiLCJhIjoiY2swdnljcjBiMDlxejNlcGY3endtaTJlYiJ9.NFfBqwPkWJopMmKo-zscAA'
     }).addTo(map);
 
-    //add the array of coordinates later
+    //already changed in maps branch
     const polygon = L.polygon([]).addTo(map);
   }
 

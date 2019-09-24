@@ -33,6 +33,7 @@ import { CurrentUserComponent } from './page/current-user/current-user.component
 import {UserProfileComponent} from './component/user-profile/user-profile.component';
 import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.component';
 import { BookingsAdminComponent } from './page/admin-page/bookings-admin/bookings-admin.component';
+import { AdminBookingDetailsComponent } from './page/admin-page/admin-booking-details/admin-booking-details.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { BookingsAdminComponent } from './page/admin-page/bookings-admin/booking
     ProfileContainerComponent,
     CurrentUserComponent,
     RoleEntryComponent,
-    BookingsAdminComponent
+    BookingsAdminComponent,
+    AdminBookingDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,8 @@ import { BookingsAdminComponent } from './page/admin-page/bookings-admin/booking
     CreateNewCarComponent,
     EditCarComponent,
     CreateNewLocationComponent,
-    EditLocationComponent
+    EditLocationComponent,
+    AdminBookingDetailsComponent
   ]
 })
 export class AppModule { }
