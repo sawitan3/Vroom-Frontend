@@ -12,6 +12,7 @@ import {SuperAdminGuard} from './guards/super-admin.guard';
 import {LoginGuard} from './guards/login.guard';
 import {CurrentUserComponent} from './page/current-user/current-user.component';
 import {CustomerGuard} from './guards/customer.guard';
+import {BookingPageComponent} from './page/booking-page/booking-page.component';
 
 const routes: Routes = [
     {path: 'login', component: LoginPageComponent, canActivate: [LoginGuard]},
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
     {path: 'register', component: RegisterPageComponent, canActivate: [LoginGuard]},
     {path: 'me', component: CurrentUserComponent, canActivate: [AuthGuard, CustomerGuard]},
+    {path: 'booking', component: BookingPageComponent, canActivate: [AuthGuard, CustomerGuard]},
     {path: 'list', component: CarPageComponent},
     {path: '**', component: MainPageComponent}];
 

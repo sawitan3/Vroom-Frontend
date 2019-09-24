@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateAdapter, NgbDateNativeUTCAdapter, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LoginPageComponent} from './page/login-page/login-page.component';
@@ -32,6 +32,11 @@ import { ProfileContainerComponent } from './container/profile-container/profile
 import { CurrentUserComponent } from './page/current-user/current-user.component';
 import {UserProfileComponent} from './component/user-profile/user-profile.component';
 import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.component';
+import { BookingPageComponent } from './page/booking-page/booking-page.component';
+import { BookingFormComponent } from './component/booking-form/booking-form.component';
+import { CarDisplayPipe } from './pipes/car-display.pipe';
+import { DatetimePickerComponent } from './component/datetime-picker/datetime-picker.component';
+import { GenericMessageComponent } from './component/modal-wrapper/generic-message/generic-message.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,12 @@ import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.com
     UserProfileComponent,
     ProfileContainerComponent,
     CurrentUserComponent,
-    RoleEntryComponent
+    RoleEntryComponent,
+    BookingPageComponent,
+    BookingFormComponent,
+    CarDisplayPipe,
+    DatetimePickerComponent,
+    GenericMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +97,8 @@ import { RoleEntryComponent } from './component/navbar/role-entry/role-entry.com
     CreateNewCarComponent,
     EditCarComponent,
     CreateNewLocationComponent,
-    EditLocationComponent
+    EditLocationComponent,
+    GenericMessageComponent
   ]
 })
 export class AppModule { }

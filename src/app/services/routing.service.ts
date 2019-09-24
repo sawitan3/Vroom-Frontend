@@ -14,6 +14,10 @@ export class RoutingService {
     return this.router.navigateByUrl(route);
   }
 
+  public go(route: Route, queryParams: {[key: string]: unknown}) {
+    return this.router.navigate([route], {queryParams});
+  }
+
   public redirectAfterLogin(role: Role) {
     switch (role) {
       case Role.SuperAdmin:
