@@ -5,7 +5,7 @@ export class Booking {
   return_location_id: number;
   begin_time: Date;
   return_time: Date;
-  status: number;
+  status: boolean;
   user_id: number;
   address: string;
   phone_number: string;

@@ -16,8 +16,8 @@
       <td>{{booking.type}}</td>
       <td>{{booking.begin_time}}</td>
       <td>{{booking.return_time}}</td>
-      <td *ngIf="booking.status==0">Inactive</td>
-      <td *ngIf="booking.status==1">Active</td>
+      <td *ngIf="!booking.status">Inactive</td>
+      <td *ngIf="booking.status">Active</td>
       <td>
         <button type="button" class="btn btn-secondary" (click)="details(booking)">Details</button>
       </td>
