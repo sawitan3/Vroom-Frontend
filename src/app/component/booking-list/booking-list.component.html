@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+  <th scope="col">Plate</th>
+  <th scope="col">Start Date</th>
+  <th scope="col">Return date</th>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let booking of bookings">
+    <tr>
+      <td>{{booking.plate}}</td>
+      <td>{{booking.begin_time}}</td>
+      <td>{{booking.return_time}}</td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>

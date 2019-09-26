@@ -39,6 +39,8 @@ import { BookingFormComponent } from './component/booking-form/booking-form.comp
 import { CarDisplayPipe } from './pipes/car-display.pipe';
 import { DatetimePickerComponent } from './component/datetime-picker/datetime-picker.component';
 import { GenericMessageComponent } from './component/modal-wrapper/generic-message/generic-message.component';
+import { UserBookingsComponent } from './page/user-bookings/user-bookings.component';
+import { BookingListComponent } from './component/booking-list/booking-list.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { GenericMessageComponent } from './component/modal-wrapper/generic-messa
     BookingFormComponent,
     CarDisplayPipe,
     DatetimePickerComponent,
-    GenericMessageComponent
+    GenericMessageComponent,
+    UserBookingsComponent,
+    BookingListComponent
   ],
   imports: [
     BrowserModule,
