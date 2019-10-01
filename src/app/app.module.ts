@@ -41,6 +41,9 @@ import { DatetimePickerComponent } from './component/datetime-picker/datetime-pi
 import { GenericMessageComponent } from './component/modal-wrapper/generic-message/generic-message.component';
 import { UserBookingsComponent } from './page/user-bookings/user-bookings.component';
 import { BookingListComponent } from './component/booking-list/booking-list.component';
+import { EditBookingComponent } from './component/edit-booking/edit-booking.component';
+import { DeleteBookingComponent } from './component/delete-booking/delete-booking.component';
+import { BookingDisplayPipe } from './pipes/booking-display.pipe';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,10 @@ import { BookingListComponent } from './component/booking-list/booking-list.comp
     DatetimePickerComponent,
     GenericMessageComponent,
     UserBookingsComponent,
-    BookingListComponent
+    BookingListComponent,
+    EditBookingComponent,
+    DeleteBookingComponent,
+    BookingDisplayPipe
   ],
   imports: [
     BrowserModule,
@@ -107,7 +113,9 @@ import { BookingListComponent } from './component/booking-list/booking-list.comp
     CreateNewLocationComponent,
     EditLocationComponent,
     AdminBookingDetailsComponent,
-    GenericMessageComponent
+    GenericMessageComponent,
+    EditBookingComponent,
+    DeleteBookingComponent
   ]
 })
 export class AppModule { }

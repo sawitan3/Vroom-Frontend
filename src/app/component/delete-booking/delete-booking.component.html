@@ -1,0 +1,11 @@
+<div>
+  <ng-container *ngIf="!isLoading">
+  Are you sure you want to delete {{payload | bookingDisplay}}?
+  <br>
+  <button class="btn btn-danger" (click)="yes()">Yes</button>
+  <button class="btn btn-secondary" (click)="no()">No</button>
+  </ng-container>
+  <ng-container *ngIf="isLoading">
+    Loading...
+  </ng-container>
+</div>
