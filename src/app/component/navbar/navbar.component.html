@@ -23,8 +23,11 @@
         </li>
       </ng-container>
       <ng-container *ngIf="isLoggedIn">
-        <li class="nav-item">
+        <ng-container>
           <app-role-entry></app-role-entry>
+        </ng-container>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <button class="btn btn-link nav-link" (click)="linkClick(route.BookingList)">Bookings</button>
         </li>
         <li class="nav-item">
           <button class="btn btn-link nav-link" (click)="logout()">Logout</button>

@@ -3,9 +3,9 @@ export class Booking {
   customer_id: number;
   car_id: number;
   return_location_id: number;
-  begin_time: Date;
-  return_time: Date;
-  status: number;
+  begin_time: string;
+  return_time: string;
+  status: boolean;
   user_id: number;
   address: string;
   phone_number: string;

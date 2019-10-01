@@ -18,8 +18,8 @@
   </tr>
   <tr>
     <td>Status</td>
-    <td *ngIf="booking.status==0">Inactive</td>
-    <td *ngIf="booking.status==1">Active</td>
+    <td *ngIf="!booking.status">Inactive</td>
+    <td *ngIf="booking.status">Active</td>
   </tr>
   </tbody>
 
