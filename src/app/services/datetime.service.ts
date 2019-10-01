@@ -27,4 +27,13 @@ export class DatetimeService {
   getInitialData() {
     return this.createDateTime(this.getToday(), {hour: 6, minute: 0, second: 0});
   }
+
+  fromString(datetime: string): {date: NgbDateStruct, time: NgbTimeStruct} {
+    const split = datetime.split(' ');
+    const datesplit = split[0].split('-');
+    const date: NgbDateStruct = {year: +datesplit[0], month: +datesplit[1], day: +datesplit[2] };
+    const timesplit = split[1].split(':');
+    const time: NgbTimeStruct = {hour: +timesplit[0], minute: +timesplit[1], second: +timesplit[2]};
+    return {date, time};
+  }
 }

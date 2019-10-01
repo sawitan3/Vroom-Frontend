@@ -44,6 +44,7 @@ import { BookingListComponent } from './component/booking-list/booking-list.comp
 import { EditBookingComponent } from './component/edit-booking/edit-booking.component';
 import { DeleteBookingComponent } from './component/delete-booking/delete-booking.component';
 import { BookingDisplayPipe } from './pipes/booking-display.pipe';
+import { ReducedBookingDisplayPipe } from './pipes/reduced-booking-display.pipe';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { BookingDisplayPipe } from './pipes/booking-display.pipe';
     BookingListComponent,
     EditBookingComponent,
     DeleteBookingComponent,
-    BookingDisplayPipe
+    BookingDisplayPipe,
+    ReducedBookingDisplayPipe
   ],
   imports: [
     BrowserModule,
@@ -103,7 +105,7 @@ import { BookingDisplayPipe } from './pipes/booking-display.pipe';
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }],
+  }, ReducedBookingDisplayPipe],
   bootstrap: [AppComponent],
   entryComponents: [
     ModalWrapperComponent,

@@ -6,6 +6,7 @@ import {environment} from '../../environments/environment';
 import {BookingListResponse} from '../model/BookingListResponse';
 import {map} from 'rxjs/operators';
 import {Booking} from '../model/Booking';
+import {EditBookingRequest} from '../model/EditBookingRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,11 @@ export class BookingService {
   getBooking(bookingId: number): Observable<Booking> {
     const url = `${this.baseUrl}/${bookingId}`;
     return this.httpClient.get(url).pipe(map((x: any) => (x.data[0] as Booking)));
+  }
+
+  editBooking(payload: EditBookingRequest, bookingId: number): Observable<unknown> {
+    const url = `${this.baseUrl}/${bookingId}`;
+    return this.httpClient.put(url, payload);
   }
 
   deleteBooking(bookingId: number): Observable<unknown> {

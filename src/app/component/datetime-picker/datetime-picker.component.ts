@@ -1,5 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {NgbCalendar, NgbDate, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {NgbCalendar, NgbDate, NgbDateStruct, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import {DatetimeService} from '../../services/datetime.service';
 import {NgbTime} from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
 
@@ -10,13 +10,16 @@ import {NgbTime} from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
 })
 export class DatetimePickerComponent implements OnInit {
 
+  @Input()
+  dateTime: string = null;
+
   @Output()
   valueChange = new EventEmitter<string>();
 
   opened = false;
 
-  minDate: NgbDate;
-  selectedDate: NgbDate;
+  minDate: NgbDateStruct;
+  selectedDate: NgbDateStruct;
   time: NgbTimeStruct;
 
   selectedDateTime: string;
@@ -25,8 +28,14 @@ export class DatetimePickerComponent implements OnInit {
 
   ngOnInit() {
     this.minDate = this.calendar.getToday();
-    this.selectedDate = this.minDate;
-    this.time = {hour: 6, minute: 0, second: 0};
+    if (!this.dateTime) {
+      this.selectedDate = this.minDate;
+      this.time = {hour: 6, minute: 0, second: 0};
+    } else {
+      const date = this.calendar.fromString(this.dateTime);
+      this.selectedDate = date.date;
+      this.time = date.time;
+    }
   }
 
   update() {

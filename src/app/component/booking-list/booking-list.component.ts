@@ -4,6 +4,8 @@ import {ModalService} from '../../services/modal.service';
 import {EditBookingComponent} from '../edit-booking/edit-booking.component';
 import {BookingService} from '../../services/booking.service';
 import {DeleteBookingComponent} from '../delete-booking/delete-booking.component';
+import {BookingDisplayPipe} from '../../pipes/booking-display.pipe';
+import {ReducedBookingDisplayPipe} from '../../pipes/reduced-booking-display.pipe';
 
 @Component({
   selector: 'app-booking-list',
@@ -15,17 +17,18 @@ export class BookingListComponent implements OnInit {
   @Input()
   bookings: Array<Booking>;
 
-  constructor(private modalService: ModalService) { }
+  constructor(private modalService: ModalService,
+              private pipe: ReducedBookingDisplayPipe) { }
 
   ngOnInit() {
   }
 
-  edit(id: number) {
-    this.modalService.open(EditBookingComponent, `Edit booking`, {bookingId: id});
+  edit(booking: Booking) {
+    this.modalService.open(EditBookingComponent, `Edit ${this.pipe.transform(booking)}`, {bookingId: booking.id});
   }
 
-  delete(id: number) {
-    this.modalService.open(DeleteBookingComponent, `Delete booking`, {bookingId: id});
+  delete(booking: Booking) {
+    this.modalService.open(DeleteBookingComponent, `Delete ${this.pipe.transform(booking)}`, {bookingId: booking.id});
   }
 
 }
