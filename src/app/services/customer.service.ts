@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 import {CustomerListResponse} from '../model/CustomerListResponse';
 import { environment } from 'src/environments/environment.prod';
 import {Customer} from '../model/Customer';
+import {EditCustomerRequest} from '../model/EditCustomerRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,11 @@ export class CustomerService {
   public toggleCustomer(id: number): Observable<any> {
     const url = `${this.url}users/activate/${id}`;
     return this.httpClient.put(url, null);
+  }
+
+  public updateCustomer(customerId: number, payload: EditCustomerRequest): Observable<unknown> {
+    const url = `${this.url}customers/${customerId}`;
+    return this.httpClient.put(url, payload);
   }
 
   private getURL(status: Status) {
