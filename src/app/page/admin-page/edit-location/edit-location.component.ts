@@ -46,6 +46,8 @@ export class EditLocationComponent implements OnInit {
 
   handleAddressChange(address: Address) {
     this.editLocationForm.get('address').setValue(address.formatted_address);
+    this.latitude = address.geometry.location.lat();
+    this.longitude = address.geometry.location.lng();
   }
 
   // add the change coordinate later
