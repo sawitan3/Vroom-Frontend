@@ -1,0 +1,45 @@
+<ng-container>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="address">Address</label>
+      <!--<AutoCompleteComponent (setAddress)="getEstablishmentAddress($event)" id="address" formControlName="address" adressType="establishment"></AutoCompleteComponent>-->
+      <input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"
+             type="text" class="form-control" id="address" placeholder="Address" formControlName="address"
+             [options]="{types: [], componentRestrictions: { country: 'AU' }}">
+      <div *ngIf="address.invalid && (address.dirty || address.touched)">
+        <small *ngIf="address.errors.required" class="form-text text-danger">
+          Address field is required
+        </small>
+      </div>
+    </div>
+
+    <!--Phone Number-->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" formControlName="phoneNumber">
+      <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+        <small *ngIf="phoneNumber.errors.required" class="form-text text-danger">
+          Phone number field is required
+        </small>
+      </div>
+    </div>
+
+    <!--License Number-->
+    <div class="form-group">
+      <label for="licenseNumber">License Number</label>
+      <input type="text" class="form-control" id="licenseNumber" placeholder="License Number" formControlName="licenseNumber">
+      <div *ngIf="licenseNumber.invalid && (licenseNumber.dirty || licenseNumber.touched)">
+        <small *ngIf="licenseNumber.errors.required" class="form-text text-danger">
+          Phone number field is required
+        </small>
+      </div>
+    </div>
+
+    <div *ngIf="message">
+      {{message}}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button class="btn btn-secondary" (click)="cancel()">Cancel</button>
+  </form>
+</ng-container>

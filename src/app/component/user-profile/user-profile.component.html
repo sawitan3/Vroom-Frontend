@@ -11,6 +11,7 @@
                 Phone number: <span>{{customerDetail.phone_number}}</span>
                 Address: <span>{{customerDetail.address}}</span>
                 License number: <span>{{customerDetail.license_number}}</span>
+                <button (click)="edit()" class="btn btn-outline-primary">Edit Details</button>
               </ng-template>
             </ngb-panel>
             <ngb-panel title="Payment Details">
@@ -22,7 +23,7 @@
           </ngb-accordion>
         </ng-container>
         <span></span>
-        <button (click)="goBack()" class="btn-primary rounded">Go back</button>
+        <button (click)="goBack()" class="btn btn-primary">Go back</button>
       </ng-container>
       <ng-container *ngIf="!customerDetail">
         Loading...

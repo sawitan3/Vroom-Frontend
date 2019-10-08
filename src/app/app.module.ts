@@ -45,6 +45,7 @@ import { EditBookingComponent } from './component/edit-booking/edit-booking.comp
 import { DeleteBookingComponent } from './component/delete-booking/delete-booking.component';
 import { BookingDisplayPipe } from './pipes/booking-display.pipe';
 import { ReducedBookingDisplayPipe } from './pipes/reduced-booking-display.pipe';
+import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { ReducedBookingDisplayPipe } from './pipes/reduced-booking-display.pipe'
     EditBookingComponent,
     DeleteBookingComponent,
     BookingDisplayPipe,
-    ReducedBookingDisplayPipe
+    ReducedBookingDisplayPipe,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +119,8 @@ import { ReducedBookingDisplayPipe } from './pipes/reduced-booking-display.pipe'
     AdminBookingDetailsComponent,
     GenericMessageComponent,
     EditBookingComponent,
-    DeleteBookingComponent
+    DeleteBookingComponent,
+    EditProfileComponent
   ]
 })
 export class AppModule { }
