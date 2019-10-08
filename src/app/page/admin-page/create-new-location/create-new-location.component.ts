@@ -14,6 +14,9 @@ export class CreateNewLocationComponent implements OnInit {
 
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
 
+  lat: number;
+  lng: number;
+
   createNewLocationForm = new FormGroup({
     address: new FormControl('', [Validators.required]),
     slot: new FormControl(1, [Validators.required, Validators.min(1)])
@@ -28,7 +31,7 @@ export class CreateNewLocationComponent implements OnInit {
   }
 
   submit() {
-    const payload: AddLocationRequest = {address: this.address.value, latitude: 0, longitude: 0,
+    const payload: AddLocationRequest = {address: this.address.value, latitude: this.lat, longitude: this.lng,
       slot: this.slot.value, current_car_num: 0};
     console.log(payload);
     this.locationService.createLocation(payload).subscribe(res =>
@@ -37,6 +40,8 @@ export class CreateNewLocationComponent implements OnInit {
 
   handleAddressChange(address: Address) {
     this.createNewLocationForm.get('address').setValue(address.formatted_address);
+    this.lat = address.geometry.location.lat();
+    this.lng = address.geometry.location.lng();
   }
 
 }

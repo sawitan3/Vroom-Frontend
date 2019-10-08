@@ -4,7 +4,7 @@
       <label for="address">Address</label>
       <input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"
              type="text" class="form-control" id="address" placeholder="Address" formControlName="address" [options]="{
-             types: [], componentRestrictions: { country: 'AU' }}">
+             types: ['geocode'], componentRestrictions: { country: 'AU' }}">
     </div>
     <div class="form-group">
       <label for="slot">Car Slot</label>

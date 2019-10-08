@@ -6,6 +6,7 @@ import {} from '@types/googlemaps';
 import {ModalService} from '../../../services/modal.service';
 import {EditLocationComponent} from '../edit-location/edit-location.component';
 import {MapCoordinates} from '../../../model/MapCoordinates';
+import {Observable} from 'rxjs';
 declare let L;
 
 @Component({
@@ -76,32 +77,6 @@ export class LocationsAdminComponent implements OnInit {
 
     for (const coordinate of this.coordinates) {
       marker = new L.marker(coordinate).addTo(map);
-    }
-  }
-
-
-  // getLocation(address: string) {
-  //   console.log('Getting address: ', address);
-  //   const geoCoder = new google.maps.Geocoder();
-  //   return Observable.create(observer => {geoCoder.geocode({ 'address': address }, (results, status) => {
-  //       if (status == google.maps.GeocoderStatus.OK) {
-  //         const lat = results[0].geometry.location.lat();
-  //         console.log('Latitude:' + lat);
-  //       } else {
-  //         console.log('Error: ', results, ' & Status: ', status);
-  //         observer.error();
-  //       }
-  //     });
-  //   });
-  // }
-
-  getLocation(address: string) {
-    this.locationService.getLocationGeoCode(address).subscribe(res => {
-      this.latitude = res[0];
-      this.longitude = res[1];
-    });
-    if (this.latitude != null && this.longitude != null) {
-      console.log('Latitude: ' + this.latitude + ', Longitude: ' + this.longitude);
     }
   }
 
