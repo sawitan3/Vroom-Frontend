@@ -24,6 +24,6 @@ export class PaymentService {
           this.modal.close();
           }, 3000);
       }
-    }, 15000);
+    }, 5000);
   }
 }
