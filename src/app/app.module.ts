@@ -48,7 +48,7 @@ import { ReducedBookingDisplayPipe } from './pipes/reduced-booking-display.pipe'
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
 import { PaymentLoadingComponent } from './component/payment-loading/payment-loading.component';
 import { PaymentScreenComponent } from './page/payment-screen/payment-screen.component';
-import { PaymentCallbackComponent } from './page/payment-callback/payment-callback.component';
+import { PaymentStatusPipe } from './pipes/payment-status.pipe';
 
 @NgModule({
   declarations: [
@@ -93,7 +93,7 @@ import { PaymentCallbackComponent } from './page/payment-callback/payment-callba
     EditProfileComponent,
     PaymentLoadingComponent,
     PaymentScreenComponent,
-    PaymentCallbackComponent
+    PaymentStatusPipe
   ],
   imports: [
     BrowserModule,
