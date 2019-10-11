@@ -14,6 +14,10 @@ import {CurrentUserComponent} from './page/current-user/current-user.component';
 import {CustomerGuard} from './guards/customer.guard';
 import {BookingPageComponent} from './page/booking-page/booking-page.component';
 import {UserBookingsComponent} from './page/user-bookings/user-bookings.component';
+import {PaymentScreenComponent} from './page/payment-screen/payment-screen.component';
+import {PaymentPageGuard} from './guards/payment-page.guard';
+import {PaymentCallbackComponent} from './page/payment-callback/payment-callback.component';
+import {PaymentCallbackGuard} from './guards/payment-callback.guard';
 
 const routes: Routes = [
     {path: 'login', component: LoginPageComponent, canActivate: [LoginGuard]},
@@ -23,6 +27,8 @@ const routes: Routes = [
     {path: 'me', component: CurrentUserComponent, canActivate: [AuthGuard, CustomerGuard]},
     {path: 'booking/me', component: UserBookingsComponent, canActivate: [AuthGuard, CustomerGuard]},
     {path: 'booking', component: BookingPageComponent, canActivate: [AuthGuard, CustomerGuard]},
+    {path: 'payment', component: PaymentScreenComponent, canActivate: [AuthGuard, PaymentPageGuard]},
+    {path: '', component: PaymentCallbackComponent, canActivate: [AuthGuard, PaymentCallbackGuard]},
     {path: 'list', component: CarPageComponent},
     {path: '**', component: MainPageComponent}];
 

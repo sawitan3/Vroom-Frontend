@@ -7,6 +7,7 @@ import {BookingListResponse} from '../model/BookingListResponse';
 import {map} from 'rxjs/operators';
 import {Booking} from '../model/Booking';
 import {EditBookingRequest} from '../model/EditBookingRequest';
+import {AddBookingResponse} from '../model/AddBookingResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class BookingService {
 
   constructor(private httpClient: HttpClient) { }
 
-  createBooking(payload: AddBookingRequest): Observable<unknown> {
-    return this.httpClient.post(this.baseUrl, payload);
+  createBooking(payload: AddBookingRequest): Observable<AddBookingResponse> {
+    return this.httpClient.post(this.baseUrl, payload).pipe(map((res: any) => res.message as AddBookingResponse));
   }
 
   getBookings(customerId: number): Observable<BookingListResponse> {
@@ -39,5 +40,10 @@ export class BookingService {
   deleteBooking(bookingId: number): Observable<unknown> {
     const url = `${this.baseUrl}/${bookingId}`;
     return this.httpClient.delete(url);
+  }
+
+  setPayment(bookingId: number, paymentStatus: 0 | 1): Observable<unknown> {
+    const url = `${this.baseUrl}/paymentStatus/${bookingId}/${paymentStatus}`;
+    return this.httpClient.get(url);
   }
 }

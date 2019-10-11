@@ -12,6 +12,7 @@ import {BookingService} from '../../services/booking.service';
 import {ModalService} from '../../services/modal.service';
 import {RoutingService} from '../../services/routing.service';
 import {Route} from '../../model/routes';
+import {PaymentService} from '../../services/payment.service';
 
 @Component({
   selector: 'app-booking-form',
@@ -42,7 +43,8 @@ export class BookingFormComponent implements OnInit {
               private datetimeService: DatetimeService,
               private bookingService: BookingService,
               private modalService: ModalService,
-              private routingService: RoutingService) { }
+              private routingService: RoutingService,
+              private payment: PaymentService) { }
 
   ngOnInit() {
     const currentCar = this.carService.getCar(this.carId).toPromise();
@@ -71,12 +73,7 @@ export class BookingFormComponent implements OnInit {
       return_time: this.bookingForm.get('returnTime').value
     };
     this.bookingService.createBooking(payload).subscribe(res => {
-      this.modalService.message('Booking successful!',
-        'Booking is successful, redirecting in 5 seconds.');
-      setTimeout(() => {
-        this.routingService.goTo(Route.Me);
-        this.modalService.close();
-      }, 5000);
+      this.routingService.go(Route.Payment, {bookingId: res.id});
     }, err => this.error = err.error.error1);
   }
 
