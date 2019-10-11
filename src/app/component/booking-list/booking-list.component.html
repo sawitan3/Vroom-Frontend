@@ -4,6 +4,7 @@
   <th scope="col">Start Date</th>
   <th scope="col">Return date</th>
   <th scope="col">Return location</th>
+  <th scope="col">Payment status</th>
   <th></th>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
       <td>{{booking.begin_time}}</td>
       <td>{{booking.return_time}}</td>
       <td>{{booking.address}}</td>
+      <td>{{booking.payment_status | paymentStatus}}</td>
       <td>
         <button class="btn btn-secondary" (click)="edit(booking)">Edit</button>
         <button class="btn btn-danger" (click)="delete(booking)">Cancel</button>

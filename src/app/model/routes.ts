@@ -7,5 +7,6 @@ export enum Route {
     SuperAdmin = '/super-admin',
     Me = '/me',
     Booking = '/booking',
-    BookingList = '/booking/me'
+    BookingList = '/booking/me',
+    Payment = '/payment'
 }

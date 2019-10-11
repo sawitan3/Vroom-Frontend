@@ -23,4 +23,5 @@ export class Booking {
   longitude: number;
   slot: number;
   current_car_num: number;
+  payment_status: boolean;
 }
