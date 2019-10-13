@@ -49,6 +49,8 @@ import { EditProfileComponent } from './component/edit-profile/edit-profile.comp
 import { PaymentLoadingComponent } from './component/payment-loading/payment-loading.component';
 import { PaymentScreenComponent } from './page/payment-screen/payment-screen.component';
 import { PaymentStatusPipe } from './pipes/payment-status.pipe';
+import { StartResetPasswordComponent } from './page/start-reset-password/start-reset-password.component';
+import { DeleteAdminComponent } from './component/delete-admin/delete-admin.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,8 @@ import { PaymentStatusPipe } from './pipes/payment-status.pipe';
     EditProfileComponent,
     PaymentLoadingComponent,
     PaymentScreenComponent,
-    PaymentStatusPipe
+    PaymentStatusPipe,
+    DeleteAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -126,7 +129,8 @@ import { PaymentStatusPipe } from './pipes/payment-status.pipe';
     GenericMessageComponent,
     EditBookingComponent,
     DeleteBookingComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    DeleteAdminComponent
   ]
 })
 export class AppModule { }

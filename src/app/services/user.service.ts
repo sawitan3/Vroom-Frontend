@@ -24,4 +24,9 @@ export class UserService {
   public createAdmin(payload: AdminRegisterRequest) {
     return this.httpClient.post(this.url, payload).pipe(map((x: any) => x.data));
   }
+
+  public deleteAdmin(id: number) {
+    const url = `${this.url}/${id}`;
+    return this.httpClient.delete(url);
+  }
 }

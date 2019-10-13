@@ -2,12 +2,14 @@
   <thead>
   <th scope="col">Name</th>
   <th scope="col">Email</th>
+  <th scope="col"></th>
   </thead>
   <tbody>
   <ng-container *ngFor="let admin of admins">
     <tr>
       <td>{{admin.name}}</td>
       <td>{{admin.email}}</td>
+      <td><button class="btn btn-danger" (click)="delete(admin)">Delete admin</button></td>
     </tr>
   </ng-container>
   </tbody>
