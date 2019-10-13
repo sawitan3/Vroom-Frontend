@@ -8,4 +8,5 @@ export class AdminResponse {
     name: string;
     email: string;
     role: Role;
+    id: number;
 }
