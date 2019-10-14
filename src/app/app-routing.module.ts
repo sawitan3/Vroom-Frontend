@@ -16,9 +16,11 @@ import {BookingPageComponent} from './page/booking-page/booking-page.component';
 import {UserBookingsComponent} from './page/user-bookings/user-bookings.component';
 import {PaymentScreenComponent} from './page/payment-screen/payment-screen.component';
 import {PaymentPageGuard} from './guards/payment-page.guard';
+import {StartResetPasswordComponent} from './page/start-reset-password/start-reset-password.component';
 
 const routes: Routes = [
     {path: 'login', component: LoginPageComponent, canActivate: [LoginGuard]},
+    {path: 'reset/start', component: StartResetPasswordComponent, canActivate: [LoginGuard]},
     {path: 'super-admin', component: SuperAdminComponent, canActivate: [AuthGuard, SuperAdminGuard]},
     {path: 'admin-page', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
     {path: 'register', component: RegisterPageComponent, canActivate: [LoginGuard]},
