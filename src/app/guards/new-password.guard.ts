@@ -7,13 +7,13 @@ import {Route} from '../model/routes';
 @Injectable({
   providedIn: 'root'
 })
-export class PaymentPageGuard implements CanActivate {
+export class NewPasswordGuard implements CanActivate {
 
   constructor(private routing: RoutingService) {}
 
   canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return 'bookingId' in next.queryParams ? true : this.routing.goTo(Route.Home);
+      next: ActivatedRouteSnapshot,
+      state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    return 'token' in next.queryParams ? true : this.routing.goTo(Route.Home);
   }
 }

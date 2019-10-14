@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ResetPasswordRequest} from '../model/ResetPasswordRequest';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {NewPasswordRequest} from '../model/NewPasswordRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,9 @@ export class ResetPasswordService {
 
   start(payload: ResetPasswordRequest): Observable<unknown> {
     return this.http.post(`${environment.baseUrl}/password/create`, payload);
+  }
+
+  reset(payload: NewPasswordRequest): Observable<unknown> {
+    return this.http.post(`${environment.baseUrl}/password/reset`, payload);
   }
 }

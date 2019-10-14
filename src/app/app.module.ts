@@ -52,6 +52,9 @@ import { PaymentStatusPipe } from './pipes/payment-status.pipe';
 import { StartResetPasswordComponent } from './page/start-reset-password/start-reset-password.component';
 import { DeleteAdminComponent } from './component/delete-admin/delete-admin.component';
 import { ResetPasswordButtonComponent } from './component/reset-password-button/reset-password-button.component';
+import { NewPasswordComponent } from './page/new-password/new-password.component';
+import { ResetPasswordFormComponent } from './component/reset-password-form/reset-password-form.component';
+import {NewPasswordGuard} from './guards/new-password.guard';
 
 @NgModule({
   declarations: [
@@ -99,7 +102,9 @@ import { ResetPasswordButtonComponent } from './component/reset-password-button/
     PaymentStatusPipe,
     DeleteAdminComponent,
     StartResetPasswordComponent,
-    ResetPasswordButtonComponent
+    ResetPasswordButtonComponent,
+    NewPasswordComponent,
+    ResetPasswordFormComponent
   ],
   imports: [
     BrowserModule,
