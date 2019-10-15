@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {icon, LatLngExpression, marker, tileLayer} from 'leaflet';
+import {LocationDisplay} from '../../model/LocationDisplay';
 
 @Component({
   selector: 'app-map-display',
@@ -9,7 +10,7 @@ import {icon, LatLngExpression, marker, tileLayer} from 'leaflet';
 export class MapDisplayComponent implements OnInit, OnChanges {
 
   @Input()
-  coordinates: Array<unknown>;
+  coordinates: Array<LocationDisplay>;
 
   options;
 
@@ -31,14 +32,14 @@ export class MapDisplayComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     if (this.coordinates) {
-      this.layers = this.coordinates.map((coordinate: LatLngExpression) => marker(coordinate, {
+      this.layers = this.coordinates.map(coordinate => marker(coordinate.location, {
         icon: icon({
           iconSize: [ 25, 41 ],
           iconAnchor: [ 13, 41 ],
           iconUrl: 'leaflet/marker-icon.png',
           shadowUrl: 'leaflet/marker-shadow.png'
         })
-      }));
+      }).bindPopup(coordinate.address).openPopup());
     }
   }
 
