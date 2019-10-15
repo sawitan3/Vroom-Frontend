@@ -9,5 +9,6 @@ export enum Route {
     Booking = '/booking',
     BookingList = '/booking/me',
     Payment = '/payment',
-    StartResetPassword = '/reset/start'
+    StartResetPassword = '/reset/start',
+    BookingHistory = '/history'
 }

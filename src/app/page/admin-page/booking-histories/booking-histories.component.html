@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+  <th scope="col">ID</th>
+  <th scope="col">Customer</th>
+  <th scope="col">Car</th>
+  <th scope="col">Start Date</th>
+  <th scope="col">Returned Date</th>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let booking of bookings">
+    <tr>
+      <td>{{booking.id}}</td>
+      <td>{{booking.name}}</td>
+      <td>{{booking.type}}</td>
+      <td>{{booking.begin_time}}</td>
+      <td>{{booking.return_time}}</td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>

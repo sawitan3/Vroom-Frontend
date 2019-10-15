@@ -29,6 +29,9 @@
         <li class="nav-item" *ngIf="isLoggedIn">
           <button class="btn btn-link nav-link" (click)="linkClick(route.BookingList)">Bookings</button>
         </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <button class="btn btn-link nav-link" (click)="linkClick(route.BookingList)">History</button>
+        </li>
         <li class="nav-item">
           <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
         </li>
