@@ -13,7 +13,8 @@ export class PaymentService {
               private modal: ModalService) { }
 
   pay(bookingId: number): void {
-    const currentWindow = window.open(`${environment.baseUrl}/payment/create/?booking_id=${bookingId}`);
+    const currentWindow = window.open(`${environment.baseUrl}/payment/create/?booking_id=${bookingId}`, '_blank',
+        'location,width=570,height=570');
     const currentTimer = setInterval(() => {
       if (currentWindow.location.hostname === window.location.hostname) {
         currentWindow.close();
