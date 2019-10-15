@@ -11,4 +11,5 @@ export class Car {
     address: string;
     slot: number;
     current_car_num: number;
+    price_per_day: number;
 }
