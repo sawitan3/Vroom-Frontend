@@ -1,25 +1,19 @@
 <table class="table">
   <thead>
+  <th scope="col">Car</th>
   <th scope="col">Plate</th>
   <th scope="col">Start Date</th>
   <th scope="col">Return date</th>
   <th scope="col">Return location</th>
-  <th scope="col">Payment status</th>
-  <th></th>
   </thead>
   <tbody>
   <ng-container *ngFor="let booking of bookings">
     <tr>
+      <td>{{booking.type}}</td>
       <td>{{booking.plate}}</td>
       <td>{{booking.begin_time}}</td>
       <td>{{booking.return_time}}</td>
       <td>{{booking.address}}</td>
-      <td>{{booking.payment_status | paymentStatus}}</td>
-      <td>
-        <button class="btn btn-secondary" (click)="edit(booking)">Edit</button>
-        <button class="btn btn-danger" (click)="delete(booking)">Cancel</button>
-        <button class="btn btn-success" (click)="return(booking.id)">Return</button>
-      </td>
     </tr>
   </ng-container>
   </tbody>

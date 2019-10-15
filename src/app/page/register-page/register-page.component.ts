@@ -55,6 +55,7 @@ export class RegisterPageComponent implements OnInit {
       this.goHome();
     }, (err) => {
       this.onError(err);
+      alert(this.error.message);
     });
   }
 

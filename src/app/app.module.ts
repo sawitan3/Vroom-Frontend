@@ -57,6 +57,9 @@ import { ResetPasswordFormComponent } from './component/reset-password-form/rese
 import { MapDisplayComponent } from './component/map-display/map-display.component';
 import { LatlngConvertPipe } from './pipes/latlng-convert.pipe';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
+import { BookingHistoriesComponent } from './page/admin-page/booking-histories/booking-histories.component';
+import { BookingHistoryPageComponent } from './page/booking-history-page/booking-history-page.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +111,10 @@ import {LeafletModule} from '@asymmetrik/ngx-leaflet';
     NewPasswordComponent,
     ResetPasswordFormComponent,
     MapDisplayComponent,
-    LatlngConvertPipe
+    LatlngConvertPipe,
+    BookingHistoryComponent,
+    BookingHistoriesComponent,
+    BookingHistoryPageComponent
   ],
   imports: [
     BrowserModule,

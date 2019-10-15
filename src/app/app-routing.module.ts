@@ -19,8 +19,10 @@ import {PaymentPageGuard} from './guards/payment-page.guard';
 import {StartResetPasswordComponent} from './page/start-reset-password/start-reset-password.component';
 import {NewPasswordComponent} from './page/new-password/new-password.component';
 import {NewPasswordGuard} from './guards/new-password.guard';
+import {BookingHistoryPageComponent} from './page/booking-history-page/booking-history-page.component';
 
 const routes: Routes = [
+    {path: 'history', component: BookingHistoryPageComponent, canActivate: [AuthGuard, CustomerGuard]},
     {path: 'login', component: LoginPageComponent, canActivate: [LoginGuard]},
     {path: 'reset/start', component: StartResetPasswordComponent, canActivate: [LoginGuard]},
     {path: 'reset/continue', component: NewPasswordComponent, canActivate: [NewPasswordGuard]},
