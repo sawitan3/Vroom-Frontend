@@ -59,6 +59,7 @@ import { LatlngConvertPipe } from './pipes/latlng-convert.pipe';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import { BookingHistoryComponent } from './component/booking-history/booking-history.component';
 import { BookingHistoriesComponent } from './page/admin-page/booking-histories/booking-histories.component';
+import { BookingHistoryPageComponent } from './page/booking-history-page/booking-history-page.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { BookingHistoriesComponent } from './page/admin-page/booking-histories/b
     MapDisplayComponent,
     LatlngConvertPipe,
     BookingHistoryComponent,
-    BookingHistoriesComponent
+    BookingHistoriesComponent,
+    BookingHistoryPageComponent
   ],
   imports: [
     BrowserModule,

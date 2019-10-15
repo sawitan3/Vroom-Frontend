@@ -14,6 +14,13 @@
                 <button (click)="edit()" class="btn btn-outline-primary">Edit Details</button>
               </ng-template>
             </ngb-panel>
+            <ngb-panel title="Account Status">
+              <ng-template ngbPanelContent>
+                Status:
+                <span *ngIf="customerDetail.status == 0">Inactive</span>
+                <span *ngIf="customerDetail.status == 1">Active</span>
+              </ng-template>
+            </ngb-panel>
             <ngb-panel title="Payment Details">
               <ng-template ngbPanelContent>
                 Credit card number: <span>{{customerDetail.number}}</span>

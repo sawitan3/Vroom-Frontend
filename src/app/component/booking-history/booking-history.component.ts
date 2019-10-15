@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {BookingHistoryResponse} from '../../model/BookingHistoryResponse';
 
 @Component({
   selector: 'app-booking-history',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./booking-history.component.css']
 })
 export class BookingHistoryComponent implements OnInit {
+
+  @Input()
+  bookings: Array<BookingHistoryResponse>
 
   constructor() { }
 

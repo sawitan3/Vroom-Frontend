@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BookingHistoryResponse} from '../../../model/BookingHistoryResponse';
 import {BookingHistoryService} from '../../../services/booking-history.service';
 
@@ -9,6 +9,7 @@ import {BookingHistoryService} from '../../../services/booking-history.service';
 })
 export class BookingHistoriesComponent implements OnInit {
 
+  @Input()
   bookings: BookingHistoryResponse[];
 
   constructor(private bookingHistoryService: BookingHistoryService) { }

@@ -1,3 +1,20 @@
-<p>
-  booking-history works!
-</p>
+<table class="table">
+  <thead>
+  <th scope="col">Car</th>
+  <th scope="col">Plate</th>
+  <th scope="col">Start Date</th>
+  <th scope="col">Return date</th>
+  <th scope="col">Return location</th>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let booking of bookings">
+    <tr>
+      <td>{{booking.type}}</td>
+      <td>{{booking.plate}}</td>
+      <td>{{booking.begin_time}}</td>
+      <td>{{booking.return_time}}</td>
+      <td>{{booking.address}}</td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
