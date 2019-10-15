@@ -31,7 +31,7 @@
     <div class="form-group">
       <label for="password">Password(*)</label>
       <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
-      <div *ngIf="confirmPassword.touched || confirmPassword.dirty">
+      <div *ngIf="password.invalid && (password.touched || password.dirty)">
         <small *ngIf="password.errors.required" class="form-text text-danger">
           Password is required.
         </small>
@@ -41,18 +41,18 @@
     <!--Re-enter Password-->
     <div class="form-group">
       <label for="confirmPassword">Re-enter Password(*)</label>
-      <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter Password" formControlName="confirm_password">
+      <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter Password" formControlName="confirm_password" (change)="validate()">
+      <div *ngIf="(confirmPassword.touched || confirmPassword.dirty)">
+        <small *ngIf="confirm" class="form-text text-danger">
+          Password does not match.
+        </small>
+      </div>
     </div>
-    <div *ngIf="confirmPassword.touched || confirmPassword.dirty">
-      <small *ngIf="user.password !== confirm" class="form-text text-danger">
-        Password does not match.
-      </small>
-    </div>
+
 
     <!--Address-->
     <div class="form-group">
       <label for="address">Address(*)</label>
-      <!--<AutoCompleteComponent (setAddress)="getEstablishmentAddress($event)" id="address" formControlName="address" adressType="establishment"></AutoCompleteComponent>-->
       <input ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"
              type="text" class="form-control" id="address" placeholder="Address" formControlName="address" [options]="{
              types: [], componentRestrictions: { country: 'AU' }}">
@@ -99,6 +99,5 @@
     </div>
 
     <button type="submit" class="btn btn-success rounded-pill">Register</button>
-
   </form>
 </div>

@@ -20,7 +20,7 @@ export class RegisterPageComponent implements OnInit {
   user: RegisterData = {name: '', email: '', password: '', role: 'customer', address: '', phone_number: 0, license_number: '',
     status: false, number: 0, exp_date: '', cc_name: ''};
 
-  confirm = '';
+  confirm = true;
 
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -97,5 +97,14 @@ export class RegisterPageComponent implements OnInit {
 
   get expDate() {
     return this.registerForm.get('exp_date');
+  }
+
+  validate() {
+    if (this.password !== this.confirmPassword){
+      this.confirm = false;
+    } else {
+      this.confirm = true;
+    }
+    console.log(this.confirm);
   }
 }
