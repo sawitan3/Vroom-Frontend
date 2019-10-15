@@ -3,7 +3,6 @@
   <div class="row">
     <div class="col-6">
   <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
-
     <div class="form-group">
       Current car: {{currentCar | carDisplay}}
     </div>
@@ -21,6 +20,8 @@
       <label for="return-date">Return time: </label>
       <app-datetime-picker id="return-date" (valueChange)="onDateTimeChange($event, 'returnTime')"></app-datetime-picker>
     </div>
+    <div *ngIf="error" class="text-danger">Error: {{error}}</div>
+        <button type="submit" class="btn btn-success rounded-pill">Book!</button>
     <div *ngIf="error" class="text-danger">Error: {{error}}</div>
     <button type="submit" class="btn btn-success rounded-pill">Book!</button>
   </form>
