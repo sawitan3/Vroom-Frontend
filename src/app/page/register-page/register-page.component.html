@@ -40,11 +40,14 @@
 
     <!--Re-enter Password-->
     <div class="form-group">
-      <label for="confirmPassword">Re-enter Password(*)</label>
-      <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter Password" formControlName="confirm_password" (change)="validate()">
-      <div *ngIf="(confirmPassword.touched || confirmPassword.dirty)">
-        <small *ngIf="confirm" class="form-text text-danger">
-          Password does not match.
+      <label for="confirm">Re-enter Password(*)</label>
+      <input type="password" class="form-control" id="confirm" placeholder="Re-enter Password" formControlName="confirm">
+      <div *ngIf="confirm.invalid && (confirm.touched || confirm.dirty)">
+        <small *ngIf="confirm.errors.required" class="form-text text-danger">
+          Confirm password is required
+        </small>
+        <small *ngIf="confirm.errors.mismatch" class="form-text text-danger">
+          Password does not match
         </small>
       </div>
     </div>

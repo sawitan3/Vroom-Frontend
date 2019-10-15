@@ -7,6 +7,7 @@ import {CreditCardValidator} from 'angular-cc-library';
 import {RegisterData} from '../../model/RegisterData';
 import {GooglePlaceDirective} from 'ngx-google-places-autocomplete';
 import {Address} from 'ngx-google-places-autocomplete/objects/address';
+import {validatePasswordMatch} from '../../validators/password-match';
 
 @Component({
   selector: 'app-register-page',
@@ -20,20 +21,17 @@ export class RegisterPageComponent implements OnInit {
   user: RegisterData = {name: '', email: '', password: '', role: 'customer', address: '', phone_number: 0, license_number: '',
     status: false, number: 0, exp_date: '', cc_name: ''};
 
-  confirm = true;
-
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    confirm_password: new FormControl('', [Validators.required]),
+    confirm: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
     license_number: new FormControl('', [Validators.required]),
     phone_number: new FormControl('', [Validators.required]),
     number: new FormControl('', [Validators.required, CreditCardValidator.validateCCNumber]),
     exp_date: new FormControl('', [Validators.required, CreditCardValidator.validateExpDate]),
-    cc_name: new FormControl()
-  });
+    cc_name: new FormControl()}, [validatePasswordMatch()]);
 
   error: {message; type} = null;
 
@@ -53,6 +51,7 @@ export class RegisterPageComponent implements OnInit {
       status: false, number: this.registerForm.get('number').value, exp_date: this.registerForm.get('exp_date').value,
       cc_name: this.registerForm.get('cc_name').value};
     this.registerService.addUser(data).subscribe((res) => {
+      alert('Register successful!');
       this.goHome();
     }, (err) => {
       this.onError(err);
@@ -91,20 +90,11 @@ export class RegisterPageComponent implements OnInit {
     return this.registerForm.get('password');
   }
 
-  get confirmPassword() {
-    return this.registerForm.get('confirm_password');
+  get confirm() {
+    return this.registerForm.get('confirm');
   }
 
   get expDate() {
     return this.registerForm.get('exp_date');
-  }
-
-  validate() {
-    if (this.password !== this.confirmPassword){
-      this.confirm = false;
-    } else {
-      this.confirm = true;
-    }
-    console.log(this.confirm);
   }
 }
