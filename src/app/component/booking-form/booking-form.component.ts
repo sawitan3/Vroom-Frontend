@@ -13,6 +13,7 @@ import {ModalService} from '../../services/modal.service';
 import {RoutingService} from '../../services/routing.service';
 import {Route} from '../../model/routes';
 import {PaymentService} from '../../services/payment.service';
+import {LatlngConvertPipe} from '../../pipes/latlng-convert.pipe';
 
 @Component({
   selector: 'app-booking-form',
@@ -31,6 +32,8 @@ export class BookingFormComponent implements OnInit {
 
   error: any = null;
 
+  coordinates: Array<unknown>;
+
   bookingForm = new FormGroup({
     returnLocation: new FormControl('', [Validators.required]),
     beginTime: new FormControl('', [Validators.required]),
@@ -44,7 +47,7 @@ export class BookingFormComponent implements OnInit {
               private bookingService: BookingService,
               private modalService: ModalService,
               private routingService: RoutingService,
-              private payment: PaymentService) { }
+              private transformer: LatlngConvertPipe) { }
 
   ngOnInit() {
     const currentCar = this.carService.getCar(this.carId).toPromise();
@@ -52,6 +55,9 @@ export class BookingFormComponent implements OnInit {
     this.customerId = this.storageService.getItem('customerId');
     Promise.all([currentCar, locationList])
         .then(res => [this.currentCar, this.locations] = res)
+        .then(() => {
+          this.coordinates = this.locations.map(a => this.transformer.transform(a));
+        })
         .then(() => {
           this.bookingForm.patchValue({
             returnLocation: this.locations[0].id

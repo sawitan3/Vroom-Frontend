@@ -51,20 +51,4 @@ export class LocationService {
     const url = this.createIdUrl(id);
     return this.httpClient.patch(url, locationJson, httpOptions);
   }
-
-  public getLocationGeoCode(address: string): Observable<any> {
-    console.log('Getting address: ', address);
-    const geoCoder = new google.maps.Geocoder();
-    return Observable.create(observer => {geoCoder.geocode({ 'address': address }, (results, status) => {
-        if (status === google.maps.GeocoderStatus.OK) {
-          const lat = results[0].geometry.location.lat();
-          const lng = results[0].geometry.location.lng();
-          return {lat, lng};
-        } else {
-          console.log('Error: ', results, ' & Status: ', status);
-          observer.error();
-        }
-      });
-    });
-  }
 }

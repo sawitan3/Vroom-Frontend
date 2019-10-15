@@ -4,7 +4,6 @@
 :root{
     --primary: rgb(244, 181, 123);
 }
-
 .custom-container {
     border-style: solid;
     border-color: darkgrey;
@@ -14,4 +13,9 @@
     border-width: 1px;
     padding: 15px;
     border-radius: 25px;
+}
+
+.map {
+    height: 500px;
+    width: 100%;
 }
