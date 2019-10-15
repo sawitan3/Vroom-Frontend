@@ -5,6 +5,7 @@ import {AddCarRequest} from '../../../model/AddCarRequest';
 import {EditCarRequest} from '../../../model/EditCarRequest';
 import {LocationService} from '../../../services/location.service';
 import {Location} from '../../../model/Location';
+import {isNumber} from '../../../validators/is-number';
 
 
 @Component({
@@ -22,8 +23,9 @@ export class EditCarComponent implements OnInit {
   editCarForm = new FormGroup({
     type: new FormControl('', [Validators.required]),
     plate: new FormControl('', [Validators.required]),
-    capacity: new FormControl(1, [Validators.required, this.isNumber, Validators.min(1)]),
+    capacity: new FormControl(1, [Validators.required, isNumber, Validators.min(1)]),
     locationId: new FormControl(1, [Validators.required]),
+    price: new FormControl(1, [Validators.required, isNumber, Validators.min(1)]),
     availability: new FormControl(true),
     image: new FormControl(null)
   });
@@ -34,13 +36,7 @@ export class EditCarComponent implements OnInit {
   get availability() {return this.editCarForm.get('availability'); }
   get locationId() {return this.editCarForm.get('locationId'); }
   get image() {return this.editCarForm.get('image'); }
-
-  private isNumber(c: AbstractControl) {
-    if (isNaN(c.value)) {
-      return {notNumber: true};
-    }
-    return null;
-  }
+  get price() {return this.editCarForm.get('price'); }
 
   constructor(private carService: CarService, private locationService: LocationService) { }
 
@@ -51,7 +47,8 @@ export class EditCarComponent implements OnInit {
         plate: res.plate,
         capacity: res.capacity,
         availability: !!res.availability,
-        locationId: res.location_id
+        locationId: res.location_id,
+        price: res.price_per_day
       });
       this.locationService.getLocations().subscribe(result => {
         this.locations = result.locations.filter(loc => loc.current_car_num <= loc.slot);
@@ -65,7 +62,7 @@ export class EditCarComponent implements OnInit {
 
   submit() {
     const payload: EditCarRequest = {type: this.type.value, availability: (this.availability.value ? 1 : 0),
-      capacity: this.capacity.value, location_id: this.locationId.value, plate: this.plate.value};
+      capacity: this.capacity.value, location_id: this.locationId.value, plate: this.plate.value, price_per_day: this.price.value};
     if (this.image.value !== null) {
       payload.cover_image = this.image.value;
     }
