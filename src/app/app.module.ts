@@ -49,7 +49,7 @@ import { EditProfileComponent } from './component/edit-profile/edit-profile.comp
 import { PaymentLoadingComponent } from './component/payment-loading/payment-loading.component';
 import { PaymentScreenComponent } from './page/payment-screen/payment-screen.component';
 import { PaymentStatusPipe } from './pipes/payment-status.pipe';
-import { StartResetPasswordComponent } from './page/start-reset-password/start-reset-password.component';
+// import { StartResetPasswordComponent } from './page/start-reset-password/start-reset-password.component';
 import { DeleteAdminComponent } from './component/delete-admin/delete-admin.component';
 import { ResetPasswordButtonComponent } from './component/reset-password-button/reset-password-button.component';
 import { NewPasswordComponent } from './page/new-password/new-password.component';
