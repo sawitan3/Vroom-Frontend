@@ -2,13 +2,15 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {Route} from '../model/routes';
 import {Role} from '../model/role';
+import {Location} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoutingService {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private location: Location) { }
 
   public goTo(route: Route) {
     return this.router.navigateByUrl(route);
@@ -16,6 +18,10 @@ export class RoutingService {
 
   public go(route: Route, queryParams: {[key: string]: unknown}) {
     return this.router.navigate([route], {queryParams});
+  }
+
+  public back() {
+    this.location.back();
   }
 
   public redirectAfterLogin(role: Role) {
