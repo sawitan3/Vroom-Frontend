@@ -53,7 +53,7 @@ export class BookingFormComponent implements OnInit {
   ngOnInit() {
     const currentCar = this.carService.getCar(this.carId).toPromise();
     const locationList = this.locationService.getLocations().pipe(map(x => x.locations)).toPromise();
-    this.customerId = this.storageService.getItem('customerId');
+    this.customerId = this.storageService.getItem('id');
     Promise.all([currentCar, locationList])
         .then(res => [this.currentCar, this.locations] = res)
         .then(() => {

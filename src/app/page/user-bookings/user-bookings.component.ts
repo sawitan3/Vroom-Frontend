@@ -16,7 +16,7 @@ export class UserBookingsComponent implements OnInit {
               private storageService: StorageService) { }
 
   ngOnInit() {
-    const customerId = this.storageService.getItem('customerId');
+    const customerId = this.storageService.getItem('id');
     this.bookingService.getBookings(customerId).subscribe(res => {console.log(res); this.bookings = res.bookings});
   }
 
