@@ -24,7 +24,7 @@
       </div>
       <button type="submit" class="btn btn-primary rounded-pill" [disabled]="loginForm.invalid">Login</button>
       <span> or </span>
-      <button type="button" class="btn btn-success rounded-pill">Register</button><br>
+      <button type="button" class="btn btn-success rounded-pill" (click)="register()">Register</button><br>
       <app-reset-password-button></app-reset-password-button>
       <div>{{errorMessage}}</div>
   </form>

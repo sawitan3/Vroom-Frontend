@@ -6,6 +6,7 @@ import {LoginResponse} from '../../model/LoginResponse';
 import {HttpErrorResponse} from '@angular/common/http';
 import {StorageService} from '../../services/storage.service';
 import {RoutingService} from '../../services/routing.service';
+import {Route} from '../../model/routes';
 
 @Component({
   selector: 'app-login-page',
@@ -61,5 +62,9 @@ export class LoginPageComponent implements OnInit {
       this.storageService.setItem('id', res.id);
     }
     this.routingService.redirectAfterLogin(res.role);
+  }
+
+  register() {
+    this.routingService.goTo(Route.Register);
   }
 }
