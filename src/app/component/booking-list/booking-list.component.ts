@@ -2,10 +2,12 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Booking} from '../../model/Booking';
 import {ModalService} from '../../services/modal.service';
 import {EditBookingComponent} from '../edit-booking/edit-booking.component';
-import {BookingService} from '../../services/booking.service';
 import {DeleteBookingComponent} from '../delete-booking/delete-booking.component';
-import {BookingDisplayPipe} from '../../pipes/booking-display.pipe';
 import {ReducedBookingDisplayPipe} from '../../pipes/reduced-booking-display.pipe';
+import {BookingHistoryService} from '../../services/booking-history.service';
+import {BookingHistoryRequest} from '../../model/BookingHistoryRequest';
+
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-booking-list',
@@ -18,7 +20,9 @@ export class BookingListComponent implements OnInit {
   bookings: Array<Booking>;
 
   constructor(private modalService: ModalService,
-              private pipe: ReducedBookingDisplayPipe) { }
+              private pipe: ReducedBookingDisplayPipe,
+              private bookingHistoryService: BookingHistoryService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -31,4 +35,23 @@ export class BookingListComponent implements OnInit {
     this.modalService.open(DeleteBookingComponent, `Delete ${this.pipe.transform(booking)}`, {bookingId: booking.id});
   }
 
+  return(bookingId: number) {
+    const payload = new BookingHistoryRequest();
+    const currDate = new Date();
+    const dateString = `${currDate.getFullYear()}-${currDate.getMonth()}-${currDate.getDate()} ${currDate.getHours()}:${currDate.getMinutes()}:${currDate.getSeconds()}`;
+    console.log(dateString);
+    payload.booking_id = bookingId;
+    payload.return_time = dateString;
+    this.bookingHistoryService.createBookingHistory(payload).subscribe((res) => {
+      alert('Return car success!');
+      this.goHome();
+    }, (err) => {
+      alert(err);
+      return;
+    });
+  }
+
+  goHome(): void {
+    this.router.navigate(['/history']);
+  }
 }
