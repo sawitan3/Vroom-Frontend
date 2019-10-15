@@ -54,7 +54,9 @@ import { DeleteAdminComponent } from './component/delete-admin/delete-admin.comp
 import { ResetPasswordButtonComponent } from './component/reset-password-button/reset-password-button.component';
 import { NewPasswordComponent } from './page/new-password/new-password.component';
 import { ResetPasswordFormComponent } from './component/reset-password-form/reset-password-form.component';
-import {NewPasswordGuard} from './guards/new-password.guard';
+import { MapDisplayComponent } from './component/map-display/map-display.component';
+import { LatlngConvertPipe } from './pipes/latlng-convert.pipe';
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -104,7 +106,9 @@ import {NewPasswordGuard} from './guards/new-password.guard';
     StartResetPasswordComponent,
     ResetPasswordButtonComponent,
     NewPasswordComponent,
-    ResetPasswordFormComponent
+    ResetPasswordFormComponent,
+    MapDisplayComponent,
+    LatlngConvertPipe
   ],
   imports: [
     BrowserModule,
@@ -118,13 +122,17 @@ import {NewPasswordGuard} from './guards/new-password.guard';
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAAjrrOQE7VlYof8Bf2CHuOpaUU_LIcWCo'
-    })
+    }),
+    LeafletModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }, ReducedBookingDisplayPipe],
+  },
+    ReducedBookingDisplayPipe,
+    LatlngConvertPipe,
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     ModalWrapperComponent,
