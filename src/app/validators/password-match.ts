@@ -7,7 +7,7 @@ export const validatePasswordMatch = (passwordControl: string = 'password', conf
         if (password.value !== confirm.value) {
             confirm.setErrors({mismatch: true});
         } else {
-            confirm.setErrors({mismatch: false});
+            confirm.setErrors(null);
         }
         return;
     };
