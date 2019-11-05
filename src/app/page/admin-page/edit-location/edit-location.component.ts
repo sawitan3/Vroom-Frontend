@@ -14,13 +14,13 @@ export class EditLocationComponent implements OnInit {
 
   @Input()
   locationId: number;
+  oldAddress: string;
+  oldSlot: number;
+  oldLat: number;
+  oldLng: number;
+  oldCarNum: number;
 
   @ViewChild('placesRef') placesRef: GooglePlaceDirective;
-
-  latitude: number;
-  longitude: number;
-  current_car_num: number;
-
   editLocationForm = new FormGroup({
     address: new FormControl('', [Validators.required]),
     slot: new FormControl(1, [Validators.required, Validators.min(1)])
@@ -32,28 +32,23 @@ export class EditLocationComponent implements OnInit {
   constructor(private locationService: LocationService) { }
 
   ngOnInit() {
-    this.locationService.getLocation(this.locationId).subscribe(res => {
-      console.log(res);
-      this.editLocationForm.patchValue({
-        address: res.address,
-        slot: res.slot
-      });
-      this.latitude = res.latitude;
-      this.longitude = res.longitude;
-      this.current_car_num = res.current_car_num;
+
+    this.editLocationForm.patchValue({
+      address: this.oldAddress,
+      slot: this.oldSlot
     });
   }
 
   handleAddressChange(address: Address) {
     this.editLocationForm.get('address').setValue(address.formatted_address);
-    this.latitude = address.geometry.location.lat();
-    this.longitude = address.geometry.location.lng();
+    this.oldLat = address.geometry.location.lat();
+    this.oldLng = address.geometry.location.lng();
   }
 
   // add the change coordinate later
   submit() {
-    const payload: EditLocationRequest = {address: this.address.value, latitude: this.latitude, longitude: this.longitude,
-      slot: this.slot.value, current_car_num: this.current_car_num};
+    const payload: EditLocationRequest = {address: this.address.value, latitude: this.oldLat, longitude: this.oldLng,
+      slot: this.slot.value, current_car_num: this.oldCarNum};
     this.locationService.editLocation(this.locationId, payload).subscribe(res => window.location.reload(),
         err => console.error(err));
   }

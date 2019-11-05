@@ -42,8 +42,8 @@ export class LocationsAdminComponent implements OnInit {
     }
   }
 
-  edit(id) {
-    const compInput = {locationId: id};
+  edit(id, address, slot, lat, lng, carNum) {
+    const compInput = {locationId: id, oldAddress: address, oldSlot: slot, oldLat: lat, oldLng: lng, oldCarNum: carNum};
     this.modalService.open(EditLocationComponent, 'Edit Location', compInput);
   }
 
